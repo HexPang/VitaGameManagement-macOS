@@ -21,13 +21,8 @@
 
 - (NSInteger)collectionView:(NSCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     NSLog(@"-= numberOfItemsInSection =-");
-    return 5;
+    return [gameList count];
 }
-
-//- (NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)collectionView{
-//    return 1;
-//}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,15 +30,7 @@
     [self.collectionView setDelegate:self];
     [self.collectionView setDataSource:self];
     VitaPackageHelper *helper = [[VitaPackageHelper alloc]init];
-    NSArray *packages = [helper loadPackage:@"/Volumes/Mac/PSVita_VPK/WTF"];
-//    NSLog(@"%@",packages);
-    NSDictionary *info = [helper loadSFO:packages[0]];
-    NSLog(@"%@",info);
+    gameList = [helper loadPackage:@"/Volumes/Mac/PSVita_VPK/"];
 }
-//
-//- (void)setRepresentedObject:(id)representedObject {
-//    [super setRepresentedObject:representedObject];
-//    // Update the view, if already loaded.
-//}
 
 @end
