@@ -12,8 +12,8 @@
 @implementation ViewController
 
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"-= itemForRepresentedObjectAtIndexPath =-");
     NSCollectionViewItem *item = [collectionView makeItemWithIdentifier:@"GameItem" forIndexPath:indexPath];
+    NSLog(@"%@",item);
     return item;
 }
 

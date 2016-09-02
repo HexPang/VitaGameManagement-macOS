@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9A9BAC6F4330B70AD992998A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFC316B0F465399E3B5CB8D /* libPods.a */; };
-		C74047C81D7975DD00091F00 /* GameItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74047C71D7975DD00091F00 /* GameItem.xib */; };
-		C74047CB1D79772200091F00 /* GameItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C74047CA1D79772200091F00 /* GameItem.m */; };
+		C74047CF1D7983B200091F00 /* GameItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C74047CD1D7983B200091F00 /* GameItem.m */; };
+		C74047D01D7983B200091F00 /* GameItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74047CE1D7983B200091F00 /* GameItem.xib */; };
 		C7A382261D796B26006449BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A382251D796B26006449BF /* AppDelegate.m */; };
 		C7A382291D796B26006449BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A382281D796B26006449BF /* main.m */; };
 		C7A3822C1D796B26006449BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A3822B1D796B26006449BF /* ViewController.m */; };
@@ -20,9 +20,9 @@
 /* Begin PBXFileReference section */
 		11FD6286A3D5A51DFC7ED1DD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7EBDEB15DE6342B76879ABFA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		C74047C71D7975DD00091F00 /* GameItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameItem.xib; sourceTree = "<group>"; };
-		C74047C91D79772200091F00 /* GameItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameItem.h; sourceTree = "<group>"; };
-		C74047CA1D79772200091F00 /* GameItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameItem.m; sourceTree = "<group>"; };
+		C74047CC1D7983B200091F00 /* GameItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameItem.h; sourceTree = "<group>"; };
+		C74047CD1D7983B200091F00 /* GameItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameItem.m; sourceTree = "<group>"; };
+		C74047CE1D7983B200091F00 /* GameItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameItem.xib; sourceTree = "<group>"; };
 		C7A382211D796B26006449BF /* VitaGameManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VitaGameManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A382241D796B26006449BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C7A382251D796B26006449BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -58,9 +58,9 @@
 		C74047C61D7975A700091F00 /* ViewItems */ = {
 			isa = PBXGroup;
 			children = (
-				C74047C71D7975DD00091F00 /* GameItem.xib */,
-				C74047C91D79772200091F00 /* GameItem.h */,
-				C74047CA1D79772200091F00 /* GameItem.m */,
+				C74047CC1D7983B200091F00 /* GameItem.h */,
+				C74047CD1D7983B200091F00 /* GameItem.m */,
+				C74047CE1D7983B200091F00 /* GameItem.xib */,
 			);
 			name = ViewItems;
 			sourceTree = "<group>";
@@ -176,8 +176,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C74047C81D7975DD00091F00 /* GameItem.xib in Resources */,
 				C7A3822E1D796B26006449BF /* Assets.xcassets in Resources */,
+				C74047D01D7983B200091F00 /* GameItem.xib in Resources */,
 				C7A382311D796B26006449BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,8 +238,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7A3822C1D796B26006449BF /* ViewController.m in Sources */,
+				C74047CF1D7983B200091F00 /* GameItem.m in Sources */,
 				C7A382291D796B26006449BF /* main.m in Sources */,
-				C74047CB1D79772200091F00 /* GameItem.m in Sources */,
 				C7A382261D796B26006449BF /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

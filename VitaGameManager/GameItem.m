@@ -8,12 +8,15 @@
 
 #import "GameItem.h"
 
+@interface GameItem ()
+
+@end
+
 @implementation GameItem
 
-- (void)drawRect:(NSRect)dirtyRect {
-    [super drawRect:dirtyRect];
-    
-    // Drawing code here.
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do view setup here.
 }
 
 @end

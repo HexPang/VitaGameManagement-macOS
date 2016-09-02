@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface GameItem : NSView
-@property IBOutlet NSImageView *imageView;
+@interface GameItem : NSCollectionViewItem
+
 @end

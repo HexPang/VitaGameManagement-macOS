@@ -673,15 +673,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="378"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXG-Ge-onG">
+                            <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXG-Ge-onG">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="378"/>
-                                <clipView key="contentView" ambiguous="YES" id="KiJ-GS-GLq">
+                                <clipView key="contentView" id="KiJ-GS-GLq">
                                     <rect key="frame" x="1" y="1" width="478" height="376"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView ambiguous="YES" id="51A-Zh-IWa">
+                                        <collectionView id="51A-Zh-IWa">
                                             <rect key="frame" x="0.0" y="0.0" width="478" height="376"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="2wZ-go-z8t">
+                                                <size key="itemSize" width="180" height="100"/>
+                                            </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </collectionView>
                                     </subviews>
@@ -696,6 +699,10 @@
                                 </scroller>
                             </scrollView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="JXG-Ge-onG" firstAttribute="height" secondItem="m2S-Jp-Qdl" secondAttribute="height" id="Jn7-Wc-19J"/>
+                            <constraint firstItem="JXG-Ge-onG" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="width" id="PaR-rQ-WF6"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="51A-Zh-IWa" id="pXc-pd-zHs"/>
