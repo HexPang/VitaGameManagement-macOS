@@ -673,36 +673,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="378"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJ0-aw-7gj">
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXG-Ge-onG">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="378"/>
-                                <clipView key="contentView" id="Whq-fW-a5C">
+                                <clipView key="contentView" ambiguous="YES" id="KiJ-GS-GLq">
                                     <rect key="frame" x="1" y="1" width="478" height="376"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="qFK-ID-g5t">
+                                        <collectionView ambiguous="YES" id="51A-Zh-IWa">
                                             <rect key="frame" x="0.0" y="0.0" width="478" height="376"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </collectionView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="UgJ-z6-XKE">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="xcK-HG-CsV">
                                     <rect key="frame" x="1" y="144" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Ws2-8M-IQI">
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ebF-YK-NOx">
                                     <rect key="frame" x="234" y="1" width="15" height="143"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="MJ0-aw-7gj" firstAttribute="height" secondItem="m2S-Jp-Qdl" secondAttribute="height" id="E7u-tt-ZcE"/>
-                            <constraint firstItem="MJ0-aw-7gj" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="width" id="rfo-fN-Gjw"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="qFK-ID-g5t" id="0dS-bO-aK3"/>
+                        <outlet property="collectionView" destination="51A-Zh-IWa" id="pXc-pd-zHs"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

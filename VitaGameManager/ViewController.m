@@ -12,11 +12,13 @@
 @implementation ViewController
 
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"-= itemForRepresentedObjectAtIndexPath =-");
     NSCollectionViewItem *item = [collectionView makeItemWithIdentifier:@"GameItem" forIndexPath:indexPath];
     return item;
 }
 
 - (NSInteger)collectionView:(NSCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    NSLog(@"-= numberOfItemsInSection =-");
     return 5;
 }
 
@@ -28,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.collectionView setDelegate:self];
     [self.collectionView setDataSource:self];
 }
 //

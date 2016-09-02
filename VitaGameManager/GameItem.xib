@@ -17,6 +17,9 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSAdvanced" id="IZ5-mb-iIi"/>
                 </imageView>
             </subviews>
+            <connections>
+                <outlet property="imageView" destination="Ojp-C3-Y4X" id="d3J-fL-O6G"/>
+            </connections>
             <point key="canvasLocation" x="245.5" y="358"/>
         </customView>
     </objects>
