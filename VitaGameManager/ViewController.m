@@ -7,19 +7,33 @@
 //
 
 #import "ViewController.h"
+#import "SSZipArchive.h"
 
 @implementation ViewController
 
+- (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
+    NSCollectionViewItem *item = [collectionView makeItemWithIdentifier:@"GameItem" forIndexPath:indexPath];
+    return item;
+}
+
+- (NSInteger)collectionView:(NSCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 5;
+}
+
+//- (NSInteger)numberOfSectionsInCollectionView:(NSCollectionView *)collectionView{
+//    return 1;
+//}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     // Do any additional setup after loading the view.
+    [self.collectionView setDataSource:self];
 }
-
-- (void)setRepresentedObject:(id)representedObject {
-    [super setRepresentedObject:representedObject];
-
-    // Update the view, if already loaded.
-}
+//
+//- (void)setRepresentedObject:(id)representedObject {
+//    [super setRepresentedObject:representedObject];
+//    // Update the view, if already loaded.
+//}
 
 @end

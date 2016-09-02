@@ -8,8 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ViewController : NSViewController
-
-
+@interface ViewController : NSViewController <NSCollectionViewDataSource>
+@property IBOutlet NSCollectionView *collectionView;
 @end
 
