@@ -10,7 +10,15 @@
 #include <stdio.h>
 
 @implementation VitaPackageHelper
+- (NSString *) getCurrentDir{
+    return [[NSFileManager defaultManager] currentDirectoryPath];
+}
+
 - (NSArray *) loadPackage:(NSString*)libPath{
+    NSString *current = [self getCurrentDir];
+    if([[NSFileManager defaultManager] createDirectoryAtPath:[NSString stringWithFormat:@"%@/cache/",current] withIntermediateDirectories:YES attributes:nil error:nil]){
+        
+    }
     NSMutableArray *packages = [[NSMutableArray alloc]init];
     NSFileManager *fm = [[NSFileManager alloc]init];
     NSError *err;
@@ -29,8 +37,12 @@
                 [packages addObjectsFromArray:packs];
             }
             if([ext isEqualToString:@"vpk"]){
-                NSDictionary *game = @{@"file":file,@"info":[self loadSFO:file]};
-                [packages addObject:game];
+                NSDictionary *sfo =[self loadSFO:file];
+                if(sfo != nil && [sfo count] > 0){
+                    NSDictionary *game = @{@"file":file,@"info":sfo};
+                    [packages addObject:game];
+                }
+           
             }
         }
         
@@ -102,7 +114,7 @@
                                 Byte dataByte[data_lenght];
                                 [sfoData getBytes:&dataByte range:NSMakeRange(DATA_OFFSET + data_offset, data_lenght)];
 //                                offset+= data_maxlength;
-                                NSString *data = [[NSString alloc] initWithData:[[NSData alloc] initWithBytes:dataByte length:data_lenght] encoding:NSUTF8StringEncoding];
+                                NSString *data = [[NSString alloc] initWithData:[[NSData alloc] initWithBytes:dataByte length:data_lenght-1] encoding:NSUTF8StringEncoding];
                                 
                                 
                                 NSMutableData *tmp = [[NSMutableData alloc]init];
@@ -111,32 +123,42 @@
                                 [sfoData getBytes:&byte range:NSMakeRange(pp, 1)];
                                 pp++;
                                 while(byte[0] != '\0'){
-                                    
                                     [tmp appendBytes:byte length:1];
                                     [sfoData getBytes:&byte range:NSMakeRange(pp, 1)];
                                     pp++;
                                 }
                                 NSString *key = [[NSString alloc] initWithData:tmp encoding:NSUTF8StringEncoding];
-                                NSLog(@"%@ => %@",key,data);
+//                                NSLog(@"%@ => %@",key,data);
                                 [dictionary setValue:data forKey:key];
                             }
-                            NSData *icon = [archive extractDataFromFile:@"sce_sys/icon0.png" progress:nil error:&error];
-                            [dictionary setValue:icon forKey:@"icon"];
-                            return dictionary;
-                        }else{
-                            return nil;
+                            
+                            NSArray *dump = @[@"sce_sys/pic0.png",@"sce_sys/icon0.png"];
+                            for (NSString *file in dump) {
+                                NSString *dir = [self getCurrentDir];
+                                NSString *fileName = [file lastPathComponent];
+                                NSString *gameID = dictionary[@"CONTENT_ID"];
+                                NSString *cacheDir = [NSString stringWithFormat:@"%@/cache/%@",dir,gameID];
+//                                NSLog(@"%@",cacheDir);
+                                if(gameID ==nil){
+                                    
+                                    NSLog(@"%@",dictionary);
+                                }
+                                NSString *cacheFile = [NSString stringWithFormat:@"%@/%@",cacheDir,fileName];
+                          
+                                if(![[NSFileManager defaultManager] fileExistsAtPath:cacheFile isDirectory:NO]){
+                                    if([[NSFileManager defaultManager] createDirectoryAtPath:cacheDir withIntermediateDirectories:YES attributes:nil error:nil]){
+                                    }
+                                    NSData *img = [archive extractDataFromFile:file progress:nil error:&error];
+                                
+                                    [img writeToFile:cacheFile atomically:NO];
+                                }
+                            }
                         }
-                    }else{
-                        return nil;
                     }
                 }
             }
         }
-        
-    }else{
-        return nil;
     }
-    
     return dictionary;
 }
 @end

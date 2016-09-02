@@ -705,8 +705,9 @@
                                         <collectionView id="Tzb-l1-JYh">
                                             <rect key="frame" x="0.0" y="0.0" width="448" height="298"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="qxp-5g-REu">
-                                                <size key="itemSize" width="180" height="100"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="5" minimumLineSpacing="20" id="gfl-qC-dkp">
+                                                <size key="itemSize" width="300" height="172"/>
+                                                <edgeInsets key="sectionInset" left="20" right="20" top="20" bottom="20"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </collectionView>
@@ -746,6 +747,14 @@
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u2E-KJ-HOL">
                                 <rect key="frame" x="20" y="258" width="260" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Set your game library..." drawsBackground="YES" id="9yM-vY-rJL">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pen-yi-BEV">
+                                <rect key="frame" x="20" y="226" width="260" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Set cache path..." drawsBackground="YES" id="d1L-np-q0Y">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

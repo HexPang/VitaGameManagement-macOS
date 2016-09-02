@@ -9,6 +9,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface GameItem : NSCollectionViewItem
-@property IBOutlet NSImageView *iconView;
-@property IBOutlet NSTextField *titleLabel;
+
 @end
