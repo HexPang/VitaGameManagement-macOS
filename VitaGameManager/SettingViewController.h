@@ -10,4 +10,7 @@
 
 @interface SettingViewController : NSViewController
 @property (weak,nonatomic) IBOutlet NSTextField *libraryField;
+
+@property (weak,nonatomic) IBOutlet NSTextField *vitaIPField;
+@property (weak,nonatomic) IBOutlet NSTextField *vitaPortField;
 @end

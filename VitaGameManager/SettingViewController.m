@@ -45,10 +45,37 @@
         }
     }];}
 
+- (void)loadConfig {
+    NSDictionary *settings = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"setting"];
+    if(settings != nil){
+        [self.vitaIPField setStringValue:settings[@"vita_ip"]];
+        [self.vitaPortField setStringValue:settings[@"vita_port"]];
+        
+    }
+}
+
+- (void)saveConfig {
+    NSMutableDictionary *settings = [[NSMutableDictionary alloc] init];
+    if(self.vitaIPField.stringValue != nil){
+        [settings setObject:self.vitaIPField.stringValue forKey:@"vita_ip"];
+    }
+    if(self.vitaPortField.stringValue != nil){
+        [settings setObject:self.vitaPortField.stringValue forKey:@"vita_port"];
+    }
+    if([settings count] > 0){
+        [[NSUserDefaults standardUserDefaults] setObject:settings forKey:@"setting"];
+    }
+}
+
+- (IBAction)applySetting:(id)sender{
+    [self saveConfig];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
     [self updateLibraryURL];
+    [self loadConfig];
 }
 
 @end

@@ -651,7 +651,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="PSVita Game Manager [v0.1.0]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="PSVita Game Manager [v0.1.0] WIP" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -668,9 +668,10 @@
         <!--Tab View Controller-->
         <scene sceneID="Kbd-32-REN">
             <objects>
-                <tabViewController selectedTabViewItemIndex="1" id="sgQ-2E-SEQ" customClass="TabViewController" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="2" id="sgQ-2E-SEQ" customClass="TabViewController" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="My Games" identifier="" id="LeV-G9-2Qm"/>
+                        <tabViewItem id="b1G-SG-J18"/>
                         <tabViewItem label="Settings" identifier="" id="7CQ-id-nFP"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="OsH-VB-Ka7">
@@ -681,6 +682,7 @@
                     </tabView>
                     <connections>
                         <segue destination="kwe-sS-65A" kind="relationship" relationship="tabItems" id="Ya6-rJ-ckb"/>
+                        <segue destination="EU6-Sk-oOH" kind="relationship" relationship="tabItems" id="B9h-76-RoW"/>
                         <segue destination="3g6-bx-T3H" kind="relationship" relationship="tabItems" id="UZu-zd-aAT"/>
                     </connections>
                 </tabViewController>
@@ -688,16 +690,29 @@
             </objects>
             <point key="canvasLocation" x="75" y="778"/>
         </scene>
+        <!--Uploads-->
+        <scene sceneID="ooa-MM-SAq">
+            <objects>
+                <viewController title="Uploads" id="EU6-Sk-oOH" sceneMemberID="viewController">
+                    <view key="view" id="6qG-kn-f9U">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="QKP-fx-re7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="1149"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="nFx-rM-xfi">
             <objects>
                 <viewController id="kwe-sS-65A" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="NNq-zJ-iyN">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="754"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="613"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prB-pD-LQs">
-                                <rect key="frame" x="0.0" y="141" width="450" height="613"/>
+                            <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prB-pD-LQs">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="613"/>
                                 <clipView key="contentView" id="uwq-sm-d6B">
                                     <rect key="frame" x="1" y="1" width="448" height="611"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -734,7 +749,7 @@
                 </viewController>
                 <customObject id="yrl-iy-lgH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="793"/>
+            <point key="canvasLocation" x="638" y="722.5"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="1ff-WC-gb4">
@@ -758,6 +773,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="applySetting:" target="3g6-bx-T3H" id="t2r-1G-ZbL"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DEi-bp-Bvq">
                                 <rect key="frame" x="299" y="252" width="69" height="32"/>
@@ -772,6 +790,23 @@
                                     <action selector="ChooseGameLibrary:" target="3g6-bx-T3H" id="jgc-pS-1Dl"/>
                                 </connections>
                             </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="an4-PN-YuW">
+                                <rect key="frame" x="20" y="226" width="190" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Set your PSVita IP" drawsBackground="YES" id="Pzr-2D-IFa">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2V-xT-7SR">
+                                <rect key="frame" x="218" y="226" width="79" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Port" drawsBackground="YES" id="FmH-bN-Lah">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="lSc-ec-PbV"/>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DEi-bp-Bvq" secondAttribute="trailing" constant="20" id="NMv-SQ-vmp"/>
@@ -783,11 +818,13 @@
                     </view>
                     <connections>
                         <outlet property="libraryField" destination="u2E-KJ-HOL" id="fHm-4h-wjn"/>
+                        <outlet property="vitaIPField" destination="an4-PN-YuW" id="g7k-ed-bmz"/>
+                        <outlet property="vitaPortField" destination="z2V-xT-7SR" id="ajb-jF-17f"/>
                     </connections>
                 </viewController>
                 <customObject id="BBR-0j-SBI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="972"/>
+            <point key="canvasLocation" x="604" y="1230"/>
         </scene>
     </scenes>
 </document>
