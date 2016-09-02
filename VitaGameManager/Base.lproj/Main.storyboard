@@ -651,7 +651,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="PSVita Game Manager [v0.1.0]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -668,7 +668,7 @@
         <!--Tab View Controller-->
         <scene sceneID="Kbd-32-REN">
             <objects>
-                <tabViewController selectedTabViewItemIndex="1" id="sgQ-2E-SEQ" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="1" id="sgQ-2E-SEQ" customClass="TabViewController" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="My Games" identifier="" id="LeV-G9-2Qm"/>
                         <tabViewItem label="Settings" identifier="" id="7CQ-id-nFP"/>
@@ -693,23 +693,23 @@
             <objects>
                 <viewController id="kwe-sS-65A" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="NNq-zJ-iyN">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="754"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prB-pD-LQs">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prB-pD-LQs">
+                                <rect key="frame" x="0.0" y="141" width="450" height="613"/>
                                 <clipView key="contentView" id="uwq-sm-d6B">
-                                    <rect key="frame" x="1" y="1" width="448" height="298"/>
+                                    <rect key="frame" x="1" y="1" width="448" height="611"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="Tzb-l1-JYh">
-                                            <rect key="frame" x="0.0" y="0.0" width="448" height="298"/>
+                                        <collectionView selectable="YES" allowsEmptySelection="NO" id="Tzb-l1-JYh">
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="611"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="5" minimumLineSpacing="20" id="gfl-qC-dkp">
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="5" minimumLineSpacing="5" scrollDirection="horizontal" id="gfl-qC-dkp">
                                                 <size key="itemSize" width="300" height="172"/>
-                                                <edgeInsets key="sectionInset" left="20" right="20" top="20" bottom="20"/>
+                                                <edgeInsets key="sectionInset" left="20" right="20" top="10" bottom="20"/>
                                             </collectionViewFlowLayout>
-                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="primaryBackgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                         </collectionView>
                                     </subviews>
                                 </clipView>
@@ -725,7 +725,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="prB-pD-LQs" firstAttribute="width" secondItem="NNq-zJ-iyN" secondAttribute="width" id="Ewi-Q9-wME"/>
-                            <constraint firstItem="prB-pD-LQs" firstAttribute="height" secondItem="NNq-zJ-iyN" secondAttribute="height" id="JBm-iK-wXH"/>
+                            <constraint firstItem="prB-pD-LQs" firstAttribute="height" secondItem="NNq-zJ-iyN" secondAttribute="height" id="QaR-KB-bxV"/>
                         </constraints>
                     </view>
                     <connections>
@@ -734,41 +734,56 @@
                 </viewController>
                 <customObject id="yrl-iy-lgH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="611"/>
+            <point key="canvasLocation" x="638" y="793"/>
         </scene>
-        <!--View Controller-->
+        <!--Setting View Controller-->
         <scene sceneID="1ff-WC-gb4">
             <objects>
-                <viewController id="3g6-bx-T3H" sceneMemberID="viewController">
+                <viewController id="3g6-bx-T3H" customClass="SettingViewController" sceneMemberID="viewController">
                     <view key="view" id="1Ft-QL-nf3">
                         <rect key="frame" x="0.0" y="0.0" width="382" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u2E-KJ-HOL">
-                                <rect key="frame" x="20" y="258" width="260" height="22"/>
+                            <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u2E-KJ-HOL">
+                                <rect key="frame" x="20" y="258" width="277" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Set your game library..." drawsBackground="YES" id="9yM-vY-rJL">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pen-yi-BEV">
-                                <rect key="frame" x="20" y="226" width="260" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Set cache path..." drawsBackground="YES" id="d1L-np-q0Y">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wr-BN-9Bu">
-                                <rect key="frame" x="287" y="252" width="81" height="32"/>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wr-BN-9Bu">
+                                <rect key="frame" x="287" y="13" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Apply" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="enQ-GU-qRI">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DEi-bp-Bvq">
+                                <rect key="frame" x="299" y="252" width="69" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="VEx-8r-kRh"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CTu-lW-Eob">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="ChooseGameLibrary:" target="3g6-bx-T3H" id="jgc-pS-1Dl"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DEi-bp-Bvq" secondAttribute="trailing" constant="20" id="NMv-SQ-vmp"/>
+                            <constraint firstItem="u2E-KJ-HOL" firstAttribute="leading" secondItem="1Ft-QL-nf3" secondAttribute="leading" constant="20" id="Ov9-pT-o21"/>
+                            <constraint firstItem="DEi-bp-Bvq" firstAttribute="leading" secondItem="u2E-KJ-HOL" secondAttribute="trailing" constant="8" id="gFG-ON-vaq"/>
+                            <constraint firstAttribute="bottom" secondItem="0wr-BN-9Bu" secondAttribute="bottom" constant="20" id="iSo-A9-WCR"/>
+                            <constraint firstAttribute="trailing" secondItem="0wr-BN-9Bu" secondAttribute="trailing" constant="20" id="yyJ-z2-jJ5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="libraryField" destination="u2E-KJ-HOL" id="fHm-4h-wjn"/>
+                    </connections>
                 </viewController>
                 <customObject id="BBR-0j-SBI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

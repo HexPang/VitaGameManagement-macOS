@@ -15,6 +15,10 @@
     NSArray *gameList;
 }
 
+- (void)collectionView:(NSCollectionView *)collectionView didSelectItemsAtIndexPaths:(NSSet<NSIndexPath *> *)indexPaths{
+    NSLog(@"Selected %@",indexPaths);
+}
+
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *game = gameList[indexPath.item];
     
@@ -35,6 +39,10 @@
     [itemView.iconView.layer setCornerRadius:45];
     
     [itemView.iconView setImage:[[NSImage alloc] initWithData:iconData]];
+    
+    [itemView.versionLabel setHidden:YES];
+    
+    [itemView updateLayer];
  
     return item;
 }
@@ -48,9 +56,15 @@
     // Do any additional setup after loading the view.
     [self.collectionView setDelegate:self];
     [self.collectionView setDataSource:self];
+}
+
+- (void)viewDidAppear{
     VitaPackageHelper *helper = [[VitaPackageHelper alloc]init];
-    gameList = [helper loadPackage:@"/Volumes/Mac/PSVita_VPK/"];
-    [self.collectionView reloadData];
+    NSURL *library = [[NSUserDefaults standardUserDefaults] URLForKey:@"library"];
+    if(library != nil){
+        gameList = [helper loadPackage:library.path];
+        [self.collectionView reloadData];
+    }
 }
 
 @end

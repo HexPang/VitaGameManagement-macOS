@@ -11,5 +11,6 @@
 @interface GameItemView : NSView
 @property IBOutlet NSImageView *iconView;
 @property IBOutlet NSTextField *titleLabel;
+@property IBOutlet NSTextField *versionLabel;
 @property IBOutlet NSImageView *backgroundView;
 @end

@@ -20,6 +20,18 @@
                     <rect key="frame" x="0.0" y="0.0" width="300" height="172"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="pic0" id="MqX-uT-HPb"/>
                 </imageView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TOh-sr-Ecj">
+                    <rect key="frame" x="20" y="41" width="90" height="90"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon0" id="esH-gp-zue"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2g-pn-l4E">
+                    <rect key="frame" x="256" y="0.0" width="44" height="19"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="v1.0.0" drawsBackground="YES" id="PQV-ox-8zy">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.33464439655172412" colorSpace="calibratedRGB"/>
+                    </textFieldCell>
+                </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TYJ-PJ-QPU">
                     <rect key="frame" x="0.0" y="155" width="305" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Hello...." drawsBackground="YES" id="rtJ-58-cfI">
@@ -28,20 +40,19 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                     </textFieldCell>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TOh-sr-Ecj">
-                    <rect key="frame" x="20" y="41" width="90" height="90"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon0" id="esH-gp-zue"/>
-                </imageView>
             </subviews>
             <constraints>
                 <constraint firstItem="x3l-ZW-mkS" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="1FE-wq-PQa"/>
+                <constraint firstAttribute="bottom" secondItem="e2g-pn-l4E" secondAttribute="bottom" id="AZu-k3-hvY"/>
                 <constraint firstItem="x3l-ZW-mkS" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" id="CeK-HT-kJg"/>
+                <constraint firstAttribute="trailing" secondItem="e2g-pn-l4E" secondAttribute="trailing" id="cQq-EI-1P7"/>
                 <constraint firstItem="TYJ-PJ-QPU" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="fXK-zv-YCf"/>
             </constraints>
             <connections>
                 <outlet property="backgroundView" destination="x3l-ZW-mkS" id="sqO-18-qX1"/>
                 <outlet property="iconView" destination="TOh-sr-Ecj" id="yTv-P3-Rbh"/>
                 <outlet property="titleLabel" destination="TYJ-PJ-QPU" id="H4g-7I-kPd"/>
+                <outlet property="versionLabel" destination="e2g-pn-l4E" id="K97-TQ-zdM"/>
             </connections>
             <point key="canvasLocation" x="340" y="278"/>
         </customView>

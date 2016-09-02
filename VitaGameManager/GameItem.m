@@ -19,4 +19,14 @@
     // Do view setup here.
 }
 
+- (void)setSelected:(BOOL)selected
+{
+    [super setSelected:selected];
+    if (selected)
+        [self.view setAlphaValue:0.6f];
+//        self.view.layer.backgroundColor = [NSColor redColor].CGColor;
+    else
+        [self.view setAlphaValue:1.0f];
+}
+
 @end
