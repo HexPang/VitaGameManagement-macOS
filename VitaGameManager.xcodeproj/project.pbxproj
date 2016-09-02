@@ -1,0 +1,296 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C7A382261D796B26006449BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A382251D796B26006449BF /* AppDelegate.m */; };
+		C7A382291D796B26006449BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A382281D796B26006449BF /* main.m */; };
+		C7A3822C1D796B26006449BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A3822B1D796B26006449BF /* ViewController.m */; };
+		C7A3822E1D796B26006449BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A3822D1D796B26006449BF /* Assets.xcassets */; };
+		C7A382311D796B26006449BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A3822F1D796B26006449BF /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C7A382211D796B26006449BF /* VitaGameManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VitaGameManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7A382241D796B26006449BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C7A382251D796B26006449BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C7A382281D796B26006449BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C7A3822A1D796B26006449BF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C7A3822B1D796B26006449BF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C7A3822D1D796B26006449BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7A382301D796B26006449BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7A382321D796B26006449BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7A3821E1D796B26006449BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C7A382181D796B26006449BF = {
+			isa = PBXGroup;
+			children = (
+				C7A382231D796B26006449BF /* VitaGameManager */,
+				C7A382221D796B26006449BF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C7A382221D796B26006449BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7A382211D796B26006449BF /* VitaGameManager.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7A382231D796B26006449BF /* VitaGameManager */ = {
+			isa = PBXGroup;
+			children = (
+				C7A382241D796B26006449BF /* AppDelegate.h */,
+				C7A382251D796B26006449BF /* AppDelegate.m */,
+				C7A3822A1D796B26006449BF /* ViewController.h */,
+				C7A3822B1D796B26006449BF /* ViewController.m */,
+				C7A3822D1D796B26006449BF /* Assets.xcassets */,
+				C7A3822F1D796B26006449BF /* Main.storyboard */,
+				C7A382321D796B26006449BF /* Info.plist */,
+				C7A382271D796B26006449BF /* Supporting Files */,
+			);
+			path = VitaGameManager;
+			sourceTree = "<group>";
+		};
+		C7A382271D796B26006449BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7A382281D796B26006449BF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7A382201D796B26006449BF /* VitaGameManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7A382351D796B26006449BF /* Build configuration list for PBXNativeTarget "VitaGameManager" */;
+			buildPhases = (
+				C7A3821D1D796B26006449BF /* Sources */,
+				C7A3821E1D796B26006449BF /* Frameworks */,
+				C7A3821F1D796B26006449BF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VitaGameManager;
+			productName = VitaGameManager;
+			productReference = C7A382211D796B26006449BF /* VitaGameManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7A382191D796B26006449BF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = HexPang;
+				TargetAttributes = {
+					C7A382201D796B26006449BF = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = C7A3821C1D796B26006449BF /* Build configuration list for PBXProject "VitaGameManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C7A382181D796B26006449BF;
+			productRefGroup = C7A382221D796B26006449BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7A382201D796B26006449BF /* VitaGameManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7A3821F1D796B26006449BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7A3822E1D796B26006449BF /* Assets.xcassets in Resources */,
+				C7A382311D796B26006449BF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7A3821D1D796B26006449BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7A3822C1D796B26006449BF /* ViewController.m in Sources */,
+				C7A382291D796B26006449BF /* main.m in Sources */,
+				C7A382261D796B26006449BF /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C7A3822F1D796B26006449BF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7A382301D796B26006449BF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7A382331D796B26006449BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C7A382341D796B26006449BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C7A382361D796B26006449BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = VitaGameManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jabstruse.VitaGameManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C7A382371D796B26006449BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = VitaGameManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jabstruse.VitaGameManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7A3821C1D796B26006449BF /* Build configuration list for PBXProject "VitaGameManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7A382331D796B26006449BF /* Debug */,
+				C7A382341D796B26006449BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7A382351D796B26006449BF /* Build configuration list for PBXNativeTarget "VitaGameManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7A382361D796B26006449BF /* Debug */,
+				C7A382371D796B26006449BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7A382191D796B26006449BF /* Project object */;
+}
