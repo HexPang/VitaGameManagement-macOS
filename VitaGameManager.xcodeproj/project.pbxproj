@@ -10,6 +10,7 @@
 		9A9BAC6F4330B70AD992998A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFC316B0F465399E3B5CB8D /* libPods.a */; };
 		C74047CF1D7983B200091F00 /* GameItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C74047CD1D7983B200091F00 /* GameItem.m */; };
 		C74047D01D7983B200091F00 /* GameItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74047CE1D7983B200091F00 /* GameItem.xib */; };
+		C7870CCB1D79BC2F006FB2AE /* VitaPackageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C7870CCA1D79BC2F006FB2AE /* VitaPackageHelper.m */; };
 		C7A382261D796B26006449BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A382251D796B26006449BF /* AppDelegate.m */; };
 		C7A382291D796B26006449BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A382281D796B26006449BF /* main.m */; };
 		C7A3822C1D796B26006449BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A3822B1D796B26006449BF /* ViewController.m */; };
@@ -23,6 +24,9 @@
 		C74047CC1D7983B200091F00 /* GameItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameItem.h; sourceTree = "<group>"; };
 		C74047CD1D7983B200091F00 /* GameItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameItem.m; sourceTree = "<group>"; };
 		C74047CE1D7983B200091F00 /* GameItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameItem.xib; sourceTree = "<group>"; };
+		C7870CC31D79BBFF006FB2AE /* UnzipKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnzipKit.framework; path = VitaPackageHelper/UnzipKit.framework; sourceTree = "<group>"; };
+		C7870CC91D79BC2F006FB2AE /* VitaPackageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VitaPackageHelper.h; sourceTree = "<group>"; };
+		C7870CCA1D79BC2F006FB2AE /* VitaPackageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VitaPackageHelper.m; sourceTree = "<group>"; };
 		C7A382211D796B26006449BF /* VitaGameManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VitaGameManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A382241D796B26006449BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C7A382251D796B26006449BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -50,6 +54,7 @@
 		8A3CCC8EA3CEE243BD87D36C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7870CC31D79BBFF006FB2AE /* UnzipKit.framework */,
 				CFFC316B0F465399E3B5CB8D /* libPods.a */,
 			);
 			name = Frameworks;
@@ -65,9 +70,26 @@
 			name = ViewItems;
 			sourceTree = "<group>";
 		};
+		C7870CC01D79BBCC006FB2AE /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		C7870CC51D79BC23006FB2AE /* VitaPackageHelper */ = {
+			isa = PBXGroup;
+			children = (
+				C7870CC91D79BC2F006FB2AE /* VitaPackageHelper.h */,
+				C7870CCA1D79BC2F006FB2AE /* VitaPackageHelper.m */,
+			);
+			name = VitaPackageHelper;
+			sourceTree = "<group>";
+		};
 		C7A382181D796B26006449BF = {
 			isa = PBXGroup;
 			children = (
+				C7870CC01D79BBCC006FB2AE /* Libs */,
 				C7A382231D796B26006449BF /* VitaGameManager */,
 				C7A382221D796B26006449BF /* Products */,
 				D7DE2E95C0E50C96428D8C28 /* Pods */,
@@ -86,6 +108,7 @@
 		C7A382231D796B26006449BF /* VitaGameManager */ = {
 			isa = PBXGroup;
 			children = (
+				C7870CC51D79BC23006FB2AE /* VitaPackageHelper */,
 				C74047C61D7975A700091F00 /* ViewItems */,
 				C7A382241D796B26006449BF /* AppDelegate.h */,
 				C7A382251D796B26006449BF /* AppDelegate.m */,
@@ -238,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7A3822C1D796B26006449BF /* ViewController.m in Sources */,
+				C7870CCB1D79BC2F006FB2AE /* VitaPackageHelper.m in Sources */,
 				C74047CF1D7983B200091F00 /* GameItem.m in Sources */,
 				C7A382291D796B26006449BF /* main.m in Sources */,
 				C7A382261D796B26006449BF /* AppDelegate.m in Sources */,
@@ -345,6 +369,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VitaPackageHelper",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = VitaGameManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jabstruse.VitaGameManager;
@@ -358,6 +387,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VitaPackageHelper",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = VitaGameManager/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jabstruse.VitaGameManager;

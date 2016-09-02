@@ -1,8 +1,8 @@
 # Uncomment this line to define a global platform for your project
-platform :osx
+platform :osx,'10.9'
 # Uncomment this line if you're using Swift
 # use_frameworks!
-pod 'SSZipArchive', '~> 1.5'
+pod "UnzipKit"
 target 'VitaGameManager' do
 
 end

@@ -7,9 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "SSZipArchive.h"
+#import "VitaPackageHelper.h"
 
-@implementation ViewController
+@implementation ViewController{
+    NSArray *gameList;
+}
 
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
     NSCollectionViewItem *item = [collectionView makeItemWithIdentifier:@"GameItem" forIndexPath:indexPath];
@@ -32,6 +34,11 @@
     // Do any additional setup after loading the view.
     [self.collectionView setDelegate:self];
     [self.collectionView setDataSource:self];
+    VitaPackageHelper *helper = [[VitaPackageHelper alloc]init];
+    NSArray *packages = [helper loadPackage:@"/Volumes/Mac/PSVita_VPK/WTF"];
+//    NSLog(@"%@",packages);
+    NSDictionary *info = [helper loadSFO:packages[0]];
+    NSLog(@"%@",info);
 }
 //
 //- (void)setRepresentedObject:(id)representedObject {

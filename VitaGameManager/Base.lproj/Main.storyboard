@@ -658,59 +658,112 @@
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="sgQ-2E-SEQ" kind="relationship" relationship="window.shadowedContentViewController" id="Her-hz-kBH"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <!--Tab View Controller-->
+        <scene sceneID="Kbd-32-REN">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="378"/>
+                <tabViewController selectedTabViewItemIndex="1" id="sgQ-2E-SEQ" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem label="My Games" identifier="" id="LeV-G9-2Qm"/>
+                        <tabViewItem label="Settings" identifier="" id="7CQ-id-nFP"/>
+                    </tabViewItems>
+                    <tabView key="tabView" type="noTabsNoBorder" id="OsH-VB-Ka7">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="message"/>
+                        <tabViewItems/>
+                    </tabView>
+                    <connections>
+                        <segue destination="kwe-sS-65A" kind="relationship" relationship="tabItems" id="Ya6-rJ-ckb"/>
+                        <segue destination="3g6-bx-T3H" kind="relationship" relationship="tabItems" id="UZu-zd-aAT"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="nP8-mz-0RV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="778"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nFx-rM-xfi">
+            <objects>
+                <viewController id="kwe-sS-65A" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" id="NNq-zJ-iyN">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXG-Ge-onG">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="378"/>
-                                <clipView key="contentView" id="KiJ-GS-GLq">
-                                    <rect key="frame" x="1" y="1" width="478" height="376"/>
+                            <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prB-pD-LQs">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <clipView key="contentView" id="uwq-sm-d6B">
+                                    <rect key="frame" x="1" y="1" width="448" height="298"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="51A-Zh-IWa">
-                                            <rect key="frame" x="0.0" y="0.0" width="478" height="376"/>
+                                        <collectionView id="Tzb-l1-JYh">
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="298"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="2wZ-go-z8t">
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="qxp-5g-REu">
                                                 <size key="itemSize" width="180" height="100"/>
                                             </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </collectionView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="xcK-HG-CsV">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="fuG-t7-3mK">
                                     <rect key="frame" x="1" y="144" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ebF-YK-NOx">
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="RnL-eR-Ptn">
                                     <rect key="frame" x="234" y="1" width="15" height="143"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="JXG-Ge-onG" firstAttribute="height" secondItem="m2S-Jp-Qdl" secondAttribute="height" id="Jn7-Wc-19J"/>
-                            <constraint firstItem="JXG-Ge-onG" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="width" id="PaR-rQ-WF6"/>
+                            <constraint firstItem="prB-pD-LQs" firstAttribute="width" secondItem="NNq-zJ-iyN" secondAttribute="width" id="Ewi-Q9-wME"/>
+                            <constraint firstItem="prB-pD-LQs" firstAttribute="height" secondItem="NNq-zJ-iyN" secondAttribute="height" id="JBm-iK-wXH"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="51A-Zh-IWa" id="pXc-pd-zHs"/>
+                        <outlet property="collectionView" destination="Tzb-l1-JYh" id="4VM-ew-kgb"/>
                     </connections>
                 </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="yrl-iy-lgH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="709"/>
+            <point key="canvasLocation" x="638" y="611"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1ff-WC-gb4">
+            <objects>
+                <viewController id="3g6-bx-T3H" sceneMemberID="viewController">
+                    <view key="view" id="1Ft-QL-nf3">
+                        <rect key="frame" x="0.0" y="0.0" width="382" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u2E-KJ-HOL">
+                                <rect key="frame" x="20" y="258" width="260" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Set your game library..." drawsBackground="YES" id="9yM-vY-rJL">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wr-BN-9Bu">
+                                <rect key="frame" x="287" y="252" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Apply" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="enQ-GU-qRI">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="BBR-0j-SBI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604" y="972"/>
         </scene>
     </scenes>
 </document>
