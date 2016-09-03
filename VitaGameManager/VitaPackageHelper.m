@@ -128,10 +128,13 @@
                                     pp++;
                                 }
                                 NSString *key = [[NSString alloc] initWithData:tmp encoding:NSUTF8StringEncoding];
-//                                NSLog(@"%@ => %@",key,data);
                                 [dictionary setValue:data forKey:key];
                             }
                             
+                            NSArray *split = [dictionary[@"CONTENT_ID"] componentsSeparatedByString:@"-"];
+                            split = [split[1] componentsSeparatedByString:@"_"];
+                            NSString *CONTENT_ID = split[0];
+                            [dictionary setObject:CONTENT_ID forKey:@"ID"];
                             NSArray *dump = @[@"sce_sys/pic0.png",@"sce_sys/icon0.png"];
                             for (NSString *file in dump) {
                                 NSString *dir = [self getCurrentDir];

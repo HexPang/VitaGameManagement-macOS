@@ -668,11 +668,11 @@
         <!--Tab View Controller-->
         <scene sceneID="Kbd-32-REN">
             <objects>
-                <tabViewController selectedTabViewItemIndex="2" id="sgQ-2E-SEQ" customClass="TabViewController" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="sgQ-2E-SEQ" customClass="TabViewController" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem label="My Games" identifier="" id="LeV-G9-2Qm"/>
-                        <tabViewItem id="b1G-SG-J18"/>
-                        <tabViewItem label="Settings" identifier="" id="7CQ-id-nFP"/>
+                        <tabViewItem label="My Games" identifier="" image="NSComputer" id="LeV-G9-2Qm"/>
+                        <tabViewItem label="Uploads" image="NSListViewTemplate" id="b1G-SG-J18"/>
+                        <tabViewItem label="Settings" identifier="" image="NSAdvanced" id="7CQ-id-nFP"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="OsH-VB-Ka7">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -688,12 +688,12 @@
                 </tabViewController>
                 <customObject id="nP8-mz-0RV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="778"/>
+            <point key="canvasLocation" x="75" y="764"/>
         </scene>
         <!--Uploads-->
         <scene sceneID="ooa-MM-SAq">
             <objects>
-                <viewController title="Uploads" id="EU6-Sk-oOH" sceneMemberID="viewController">
+                <viewController title="Uploads" id="EU6-Sk-oOH" customClass="UploadViewController" sceneMemberID="viewController">
                     <view key="view" id="6qG-kn-f9U">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -708,10 +708,10 @@
             <objects>
                 <viewController id="kwe-sS-65A" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="NNq-zJ-iyN">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="613"/>
+                        <rect key="frame" x="0.0" y="0.0" width="714" height="613"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prB-pD-LQs">
+                            <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prB-pD-LQs">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="613"/>
                                 <clipView key="contentView" id="uwq-sm-d6B">
                                     <rect key="frame" x="1" y="1" width="448" height="611"/>
@@ -724,7 +724,7 @@
                                                 <size key="itemSize" width="300" height="172"/>
                                                 <edgeInsets key="sectionInset" left="20" right="20" top="10" bottom="20"/>
                                             </collectionViewFlowLayout>
-                                            <color key="primaryBackgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </collectionView>
                                     </subviews>
                                 </clipView>
@@ -745,11 +745,26 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Tzb-l1-JYh" id="4VM-ew-kgb"/>
+                        <outlet property="rightMenu" destination="PUM-yG-Zde" id="gkt-aQ-eYX"/>
                     </connections>
                 </viewController>
                 <customObject id="yrl-iy-lgH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu title="Menu" id="PUM-yG-Zde">
+                    <items>
+                        <menuItem title="Upload" id="SUQ-ab-Kev">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Split" enabled="NO" id="98N-DB-Rzn">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="e3Z-hQ-06O"/>
+                        <menuItem title="Remove" id="rLD-mJ-8fu">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
-            <point key="canvasLocation" x="638" y="722.5"/>
+            <point key="canvasLocation" x="765" y="599.5"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="1ff-WC-gb4">
@@ -827,4 +842,9 @@
             <point key="canvasLocation" x="604" y="1230"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSAdvanced" width="32" height="32"/>
+        <image name="NSComputer" width="32" height="32"/>
+        <image name="NSListViewTemplate" width="14" height="10"/>
+    </resources>
 </document>

@@ -13,10 +13,15 @@
 
 @implementation ViewController{
     NSArray *gameList;
+    NSDictionary *regionPrefix;
 }
 
 - (void)collectionView:(NSCollectionView *)collectionView didSelectItemsAtIndexPaths:(NSSet<NSIndexPath *> *)indexPaths{
-    NSLog(@"Selected %@",indexPaths);
+//    NSLog(@"Selected %@",self.menu);
+    if([indexPaths count] > 0){
+        [self.rightMenu popUpMenuPositioningItem:nil atLocation:[NSEvent mouseLocation] inView:collectionView];
+        
+    }
 }
 
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath{
@@ -24,6 +29,7 @@
     
     GameItem *item = [collectionView makeItemWithIdentifier:@"GameItem" forIndexPath:indexPath];
     GameItemView *itemView = (GameItemView *)item.view;
+    [itemView setGame:game];
     [itemView.titleLabel setStringValue:game[@"info"][@"TITLE"]];
     NSString *currentDir = [[NSFileManager defaultManager] currentDirectoryPath];
     NSString *dir = [NSString stringWithFormat:@"%@/cache/%@",currentDir,game[@"info"][@"CONTENT_ID"]];
@@ -34,13 +40,42 @@
     NSData *picData = [[NSData alloc] initWithContentsOfFile:picFile];
     
     [itemView.backgroundView setImage:[[NSImage alloc] initWithData:picData]];
-    [itemView.iconView setAlphaValue:0.8f];
+    
     [itemView.iconView.layer setMasksToBounds:YES];
     [itemView.iconView.layer setCornerRadius:45];
     
     [itemView.iconView setImage:[[NSImage alloc] initWithData:iconData]];
+    NSString *gameRegion = @"";
     
-    [itemView.versionLabel setHidden:YES];
+    for (NSString *prefix in regionPrefix) {
+        if([game[@"info"][@"ID"] hasPrefix:prefix]){
+            gameRegion = regionPrefix[prefix];
+            break;
+        }
+    }
+    
+    unsigned long long size = [[NSFileManager defaultManager] attributesOfItemAtPath:game[@"file"] error:nil].fileSize;
+    
+    NSString *gameSize = @"";
+   
+    //[NSByteCountFormatter stringFromByteCount:1999 countStyle:NSByteCountFormatterCountStyleFile];
+
+    gameSize = [NSByteCountFormatter stringFromByteCount:size countStyle:NSByteCountFormatterCountStyleFile];
+    
+    NSString *infoText = [NSString stringWithFormat:@"GAME ID:%@\r\nSize:%@\r\nRegion:%@",game[@"info"][@"ID"],gameSize,gameRegion];
+    
+    [itemView.infoLabel setStringValue:infoText];
+//    [itemView.infoLabel.layer setMasksToBounds:YES];
+//    [itemView.infoLabel.layer setCornerRadius:5];
+    
+    if(game[@"info"][@"APP_VER"] != nil){
+        [itemView.versionLabel setStringValue:game[@"info"][@"APP_VER"]];
+    }else{
+        [itemView.versionLabel setHidden:YES];
+    }
+    
+    [itemView.layer setMasksToBounds:YES];
+    [itemView.layer setCornerRadius:10];
     
     [itemView updateLayer];
  
@@ -56,6 +91,7 @@
     // Do any additional setup after loading the view.
     [self.collectionView setDelegate:self];
     [self.collectionView setDataSource:self];
+    regionPrefix = @{@"PCSF":@"EU",@"PCSE":@"US",@"PCSG":@"JP",@"PCSH":@"HK",@"PCSD":@"CN",@"PCSB":@"AU"};
 }
 
 - (void)viewDidAppear{

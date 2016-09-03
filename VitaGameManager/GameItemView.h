@@ -13,4 +13,9 @@
 @property IBOutlet NSTextField *titleLabel;
 @property IBOutlet NSTextField *versionLabel;
 @property IBOutlet NSImageView *backgroundView;
+@property IBOutlet NSTextField *infoLabel;
+@property IBOutlet NSView *infoView;
+@property IBOutlet NSButton *uploadButton;
+
+- (void)setGame:(NSDictionary *)info;
 @end

@@ -40,6 +40,26 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                     </textFieldCell>
                 </textField>
+                <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ENB-iH-nIT">
+                    <rect key="frame" x="117" y="41" width="163" height="90"/>
+                    <subviews>
+                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Njd-KG-Hm1">
+                            <rect key="frame" x="0.0" y="0.0" width="162" height="90"/>
+                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Size:2.3 GB" drawsBackground="YES" id="93u-Co-V97">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.3346443966" colorSpace="calibratedRGB"/>
+                            </textFieldCell>
+                        </textField>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ppO-dr-SCG">
+                            <rect key="frame" x="0.0" y="0.0" width="81" height="32"/>
+                            <buttonCell key="cell" type="push" title="Upload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="r7y-9G-1WV">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                    </subviews>
+                </customView>
             </subviews>
             <constraints>
                 <constraint firstItem="x3l-ZW-mkS" firstAttribute="width" secondItem="Hz6-mo-xeY" secondAttribute="width" id="1FE-wq-PQa"/>
@@ -51,7 +71,10 @@
             <connections>
                 <outlet property="backgroundView" destination="x3l-ZW-mkS" id="sqO-18-qX1"/>
                 <outlet property="iconView" destination="TOh-sr-Ecj" id="yTv-P3-Rbh"/>
+                <outlet property="infoLabel" destination="Njd-KG-Hm1" id="wkG-q2-Hnz"/>
+                <outlet property="infoView" destination="ENB-iH-nIT" id="tWq-eJ-Gc1"/>
                 <outlet property="titleLabel" destination="TYJ-PJ-QPU" id="H4g-7I-kPd"/>
+                <outlet property="uploadButton" destination="ppO-dr-SCG" id="q54-f6-rPv"/>
                 <outlet property="versionLabel" destination="e2g-pn-l4E" id="K97-TQ-zdM"/>
             </connections>
             <point key="canvasLocation" x="340" y="278"/>

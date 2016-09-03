@@ -10,5 +10,6 @@
 
 @interface ViewController : NSViewController <NSCollectionViewDataSource,NSCollectionViewDelegate>
 @property IBOutlet NSCollectionView *collectionView;
+@property (weak,nonatomic) IBOutlet NSMenu *rightMenu;
 @end
 
