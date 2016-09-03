@@ -15,8 +15,8 @@
 }
 
 - (NSArray *) loadPackage:(NSString*)libPath{
-    NSString *current = [self getCurrentDir];
-    if([[NSFileManager defaultManager] createDirectoryAtPath:[NSString stringWithFormat:@"%@/cache/",current] withIntermediateDirectories:YES attributes:nil error:nil]){
+//    NSString *current = [self getCurrentDir];
+    if([[NSFileManager defaultManager] createDirectoryAtPath:@"cache/" withIntermediateDirectories:YES attributes:nil error:nil]){
         
     }
     NSMutableArray *packages = [[NSMutableArray alloc]init];
@@ -140,7 +140,7 @@
                                 NSString *dir = [self getCurrentDir];
                                 NSString *fileName = [file lastPathComponent];
                                 NSString *gameID = dictionary[@"CONTENT_ID"];
-                                NSString *cacheDir = [NSString stringWithFormat:@"%@/cache/%@",dir,gameID];
+                                NSString *cacheDir = [NSString stringWithFormat:@"cache/%@",gameID];
 //                                NSLog(@"%@",cacheDir);
                                 if(gameID ==nil){
                                     
