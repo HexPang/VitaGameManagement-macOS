@@ -30,10 +30,10 @@
     
     GameItemView *infoView = (GameItemView*)self.view;
     if (selected){
-        [infoView.infoView setHidden:NO];
+//        [infoView.infoView setHidden:NO];
     }
     else{
-        [infoView.infoView setHidden:YES];
+//        [infoView.infoView setHidden:YES];
     }
 }
 

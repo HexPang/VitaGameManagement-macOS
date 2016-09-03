@@ -40,7 +40,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                     </textFieldCell>
                 </textField>
-                <customView hidden="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ENB-iH-nIT">
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ENB-iH-nIT">
                     <rect key="frame" x="117" y="41" width="163" height="90"/>
                     <subviews>
                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Njd-KG-Hm1">
