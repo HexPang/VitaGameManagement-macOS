@@ -31,20 +31,24 @@
     GameItemView *itemView = (GameItemView *)item.view;
     [itemView setGame:game];
     [itemView.titleLabel setStringValue:game[@"info"][@"TITLE"]];
-    NSString *currentDir = [[NSFileManager defaultManager] currentDirectoryPath];
-    NSString *dir = [NSString stringWithFormat:@"%@/cache/%@",currentDir,game[@"info"][@"CONTENT_ID"]];
+    NSString *cacheDir = [[[Util shareInstance] cacheFolder] path];
+    NSString *dir = [NSString stringWithFormat:@"%@/%@",cacheDir,game[@"info"][@"CONTENT_ID"]];
     NSString *iconFile =[NSString stringWithFormat:@"%@/icon0.png",dir];
     NSString *picFile = [NSString stringWithFormat:@"%@/pic0.png",dir];
     
-    NSData *iconData = [[NSData alloc] initWithContentsOfFile:iconFile];
-    NSData *picData = [[NSData alloc] initWithContentsOfFile:picFile];
+    if([[NSFileManager defaultManager] fileExistsAtPath:picFile]){
+        NSData *picData = [[NSData alloc] initWithContentsOfFile:picFile];
+        [itemView.backgroundView setImage:[[NSImage alloc] initWithData:picData]];
+    }
     
-    [itemView.backgroundView setImage:[[NSImage alloc] initWithData:picData]];
+    if([[NSFileManager defaultManager] fileExistsAtPath:iconFile]){
+        NSData *iconData = [[NSData alloc] initWithContentsOfFile:iconFile];
+        [itemView.iconView setImage:[[NSImage alloc] initWithData:iconData]];
+    }
     
     [itemView.iconView.layer setMasksToBounds:YES];
     [itemView.iconView.layer setCornerRadius:45];
     
-    [itemView.iconView setImage:[[NSImage alloc] initWithData:iconData]];
     NSString *gameRegion = @"";
     
     for (NSString *prefix in regionPrefix) {
@@ -77,8 +81,8 @@
     [itemView.layer setMasksToBounds:YES];
     [itemView.layer setCornerRadius:10];
     
-    [itemView updateLayer];
- 
+    [itemView.layer setNeedsDisplay];
+    [itemView.layer displayIfNeeded];
     return item;
 }
 

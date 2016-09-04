@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "UnzipKit.h"
+#import "Util.h"
 
 @interface VitaPackageHelper : NSObject
 - (NSArray *) loadPackage:(NSString*)path;

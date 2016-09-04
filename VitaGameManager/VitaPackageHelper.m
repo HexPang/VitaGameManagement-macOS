@@ -130,30 +130,31 @@
                                 NSString *key = [[NSString alloc] initWithData:tmp encoding:NSUTF8StringEncoding];
                                 [dictionary setValue:data forKey:key];
                             }
-                            
-                            NSArray *split = [dictionary[@"CONTENT_ID"] componentsSeparatedByString:@"-"];
-                            split = [split[1] componentsSeparatedByString:@"_"];
-                            NSString *CONTENT_ID = split[0];
-                            [dictionary setObject:CONTENT_ID forKey:@"ID"];
-                            NSArray *dump = @[@"sce_sys/pic0.png",@"sce_sys/icon0.png"];
-                            for (NSString *file in dump) {
-                                NSString *dir = [self getCurrentDir];
-                                NSString *fileName = [file lastPathComponent];
-                                NSString *gameID = dictionary[@"CONTENT_ID"];
-                                NSString *cacheDir = [NSString stringWithFormat:@"cache/%@",gameID];
-//                                NSLog(@"%@",cacheDir);
-                                if(gameID ==nil){
-                                    
-                                    NSLog(@"%@",dictionary);
-                                }
-                                NSString *cacheFile = [NSString stringWithFormat:@"%@/%@",cacheDir,fileName];
-                          
-                                if(![[NSFileManager defaultManager] fileExistsAtPath:cacheFile isDirectory:NO]){
-                                    if([[NSFileManager defaultManager] createDirectoryAtPath:cacheDir withIntermediateDirectories:YES attributes:nil error:nil]){
+                            if([dictionary[@"CONTENT_ID"] length] > 0){
+                                NSArray *split = [dictionary[@"CONTENT_ID"] componentsSeparatedByString:@"-"];
+                                split = [split[1] componentsSeparatedByString:@"_"];
+                                NSString *CONTENT_ID = split[0];
+                                [dictionary setObject:CONTENT_ID forKey:@"ID"];
+                                NSArray *dump = @[@"sce_sys/pic0.png",@"sce_sys/icon0.png"];
+                                NSString *dir = [[[Util shareInstance] cacheFolder] path];
+                                for (NSString *file in dump) {
+                                    NSString *fileName = [file lastPathComponent];
+                                    NSString *gameID = dictionary[@"CONTENT_ID"];
+                                    NSString *cacheDir = [NSString stringWithFormat:@"%@/%@",dir,gameID];
+                                    //                                NSLog(@"%@",cacheDir);
+                                    if(gameID ==nil){
+                                        
+                                        NSLog(@"%@",dictionary);
                                     }
-                                    NSData *img = [archive extractDataFromFile:file progress:nil error:&error];
-                                
-                                    [img writeToFile:cacheFile atomically:NO];
+                                    NSString *cacheFile = [NSString stringWithFormat:@"%@/%@",cacheDir,fileName];
+                                    
+                                    if(![[NSFileManager defaultManager] fileExistsAtPath:cacheFile isDirectory:NO]){
+                                        if([[NSFileManager defaultManager] createDirectoryAtPath:cacheDir withIntermediateDirectories:YES attributes:nil error:nil]){
+                                        }
+                                        NSData *img = [archive extractDataFromFile:file progress:nil error:&error];
+                                        
+                                        [img writeToFile:cacheFile atomically:NO];
+                                    }
                                 }
                             }
                         }
