@@ -95,7 +95,7 @@
     // Do any additional setup after loading the view.
     [self.collectionView setDelegate:self];
     [self.collectionView setDataSource:self];
-    regionPrefix = @{@"PCSF":@"EU",@"PCSE":@"US",@"PCSG":@"JP",@"PCSH":@"HK",@"PCSD":@"CN",@"PCSB":@"AU"};
+    regionPrefix = @{@"PCSF":@"EU",@"PCSE":@"US",@"PCSG":@"JP",@"PCSH":@"HK",@"PCSD":@"CN",@"PCSB":@"AU",@"PCSA":@"US"};
 }
 
 - (void)viewDidAppear{
