@@ -312,7 +312,14 @@ result;})
     currentRunLoop = CFRunLoopGetCurrent();
     
     self.serverStream.delegate = self;
-    [self.serverStream open];
+    @try {
+        [self.serverStream open];
+    } @catch (NSException *exception) {
+        success = NO;
+    } @finally {
+        [self.serverStream close];
+    }
+    
     [self.serverStream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     CFRunLoopRun();
