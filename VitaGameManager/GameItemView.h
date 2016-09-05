@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "VitaPackageHelper.h"
 
 @interface GameItemView : NSView
 @property IBOutlet NSImageView *iconView;
@@ -16,6 +17,7 @@
 @property IBOutlet NSTextField *infoLabel;
 @property IBOutlet NSView *infoView;
 @property IBOutlet NSButton *uploadButton;
+@property IBOutlet NSButton *patchButton;
 
 - (void)setGame:(NSDictionary *)info;
 @end

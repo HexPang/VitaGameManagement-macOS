@@ -58,6 +58,13 @@
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                         </button>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="es5-fR-gbh">
+                            <rect key="frame" x="81" y="0.0" width="81" height="32"/>
+                            <buttonCell key="cell" type="push" title="Patch" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GQJ-OE-zjP">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
                     </subviews>
                 </customView>
             </subviews>
@@ -73,6 +80,7 @@
                 <outlet property="iconView" destination="TOh-sr-Ecj" id="yTv-P3-Rbh"/>
                 <outlet property="infoLabel" destination="Njd-KG-Hm1" id="wkG-q2-Hnz"/>
                 <outlet property="infoView" destination="ENB-iH-nIT" id="tWq-eJ-Gc1"/>
+                <outlet property="patchButton" destination="es5-fR-gbh" id="OXy-LL-PCa"/>
                 <outlet property="titleLabel" destination="TYJ-PJ-QPU" id="H4g-7I-kPd"/>
                 <outlet property="uploadButton" destination="ppO-dr-SCG" id="q54-f6-rPv"/>
                 <outlet property="versionLabel" destination="e2g-pn-l4E" id="K97-TQ-zdM"/>

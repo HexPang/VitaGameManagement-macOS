@@ -46,8 +46,7 @@
         [itemView.iconView setImage:[[NSImage alloc] initWithData:iconData]];
     }
     
-    [itemView.iconView.layer setMasksToBounds:YES];
-    [itemView.iconView.layer setCornerRadius:45];
+
     
     NSString *gameRegion = @"";
     
@@ -77,12 +76,7 @@
     }else{
         [itemView.versionLabel setHidden:YES];
     }
-    
-    [itemView.layer setMasksToBounds:YES];
-    [itemView.layer setCornerRadius:10];
-    
-    [itemView.layer setNeedsDisplay];
-    [itemView.layer displayIfNeeded];
+
     return item;
 }
 

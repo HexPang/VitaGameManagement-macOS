@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
+   
 }
 
 
@@ -28,7 +29,7 @@
 {
     [super setSelected:selected];
     
-    GameItemView *infoView = (GameItemView*)self.view;
+    //
     if (selected){
 //        [infoView.infoView setHidden:NO];
     }

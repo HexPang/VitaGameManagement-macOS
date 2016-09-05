@@ -97,17 +97,21 @@ NSString *message;
     //update some ui stuff, you know
 }
 
-- (void)uploadViewNotification:(NSNotification *)notification {
-    for (NSDictionary *item in queue) {
-        if([item isEqualToDictionary:notification.object]){
-            return;
+- (void)gameItemNotification:(NSNotification *)notification {
+    NSDictionary *notify = notification.object;
+    NSString *action = notify[@"action"];
+    NSDictionary *g = notify[@"game"];
+    if([action isEqualToString:@"upload"]){
+        for (NSDictionary *item in queue) {
+            if([item isEqualToDictionary:g]){
+                return;
+            }
         }
+        NSMutableDictionary *game = [[NSMutableDictionary alloc] initWithDictionary:g];
+        [queue addObject:game];
+        [self.tableView reloadData];
+        [self doQueue];
     }
-    NSMutableDictionary *game = [[NSMutableDictionary alloc] initWithDictionary:notification.object];
-    [queue addObject:game];
-    [self.tableView reloadData];
-    [self doQueue];
-
 }
 
 -(void)doQueue {
@@ -154,7 +158,7 @@ NSString *message;
     [super viewDidLoad];
     // Do view setup here.
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadViewNotification:) name:@"UPLOAD_NOTIFICATION" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameItemNotification:) name:@"GAME_ITEM_NOTIFICATION" object:nil];
     if(!queue){
         queue = [[NSMutableArray alloc] init];
     }

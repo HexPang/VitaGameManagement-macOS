@@ -51,6 +51,36 @@
     return packages;
 }
 
+- (BOOL) patchPackage:(NSString *)sourceFile withPatchFile:(NSString*)patchFile withProgress:(patchProgressBlock)block{
+    if([UZKArchive pathIsAZip:sourceFile] && [UZKArchive pathIsAZip:patchFile]){
+        NSError *sourceArchiveError = nil;
+        NSError *patchArchiveError = nil;
+        UZKArchive *sourceArchive = [[UZKArchive alloc] initWithPath:sourceFile error:&sourceArchiveError];
+        UZKArchive *patchArchive = [[UZKArchive alloc] initWithPath:patchFile error:&patchArchiveError];
+        NSArray *patchFiles = [patchArchive listFilenames:nil];
+        long total = [patchFiles count];
+        int index = 0;
+        for(NSString *pFile in patchFiles){
+            index++;
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                NSData *pFileData = [patchArchive extractDataFromFile:pFile progress:nil error:nil];
+                if(pFileData.length > 0){
+                    //Remove Source File if exists.
+                    [sourceArchive deleteFile:pFile error:nil];
+                    [sourceArchive writeData:pFileData filePath:pFile error:nil];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        block(total,index);
+                    });
+                }
+            });
+           
+        }
+
+        return YES;
+    }
+    return NO;
+}
+
 - (NSDictionary *) loadSFO:(NSString*) package{
     BOOL isZIP = [UZKArchive pathIsAZip:package];
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc]init];

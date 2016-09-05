@@ -11,6 +11,10 @@
 #import "Util.h"
 
 @interface VitaPackageHelper : NSObject
+typedef void (^patchProgressBlock)(long total,int current);
+
 - (NSArray *) loadPackage:(NSString*)path;
 - (NSDictionary *) loadSFO:(NSString*) package;
+- (BOOL) patchPackage:(NSString *)sourceFile withPatchFile:(NSString*)patchFile;
+- (BOOL) patchPackage:(NSString *)sourceFile withPatchFile:(NSString*)patchFile withProgress:(patchProgressBlock)block;
 @end

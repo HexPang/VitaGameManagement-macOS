@@ -814,7 +814,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView selectable="YES" allowsEmptySelection="NO" id="Tzb-l1-JYh">
-                                            <rect key="frame" x="0.0" y="0.0" width="712" height="611"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1240" height="611"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="5" minimumLineSpacing="5" scrollDirection="horizontal" id="gfl-qC-dkp">
                                                 <size key="itemSize" width="300" height="172"/>
