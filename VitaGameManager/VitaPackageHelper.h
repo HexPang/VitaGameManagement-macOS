@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "UnzipKit.h"
 #import "Util.h"
+#import "SSZipArchive.h"
+#import <Cocoa/Cocoa.h>
 
 @interface VitaPackageHelper : NSObject
-typedef void (^patchProgressBlock)(long total,int current);
+typedef void (^patchProgressBlock)(int state,float progress,NSString *file);
 
 - (NSArray *) loadPackage:(NSString*)path;
 - (NSDictionary *) loadSFO:(NSString*) package;

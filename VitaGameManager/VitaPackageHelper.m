@@ -14,6 +14,29 @@
     return [[NSFileManager defaultManager] currentDirectoryPath];
 }
 
+- (NSArray *) treeFiles:(NSString *)path{
+    NSMutableArray *fileList = [[NSMutableArray alloc]init];
+    
+    NSURL *url = [NSURL URLWithString:[path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSFileManager *fm = [[NSFileManager alloc]init];
+    if(url != nil){
+        NSArray *files = [fm contentsOfDirectoryAtURL:url includingPropertiesForKeys:nil options:0 error:nil];
+        
+        for (NSURL *fileUrl in files) {
+            NSString *file = [fileUrl path];
+            BOOL isDir = NO;
+            if([fm fileExistsAtPath:file isDirectory:&isDir] && isDir){
+                //目录处理，继续便利!
+                NSArray *fs = (NSArray *)[self treeFiles:file];
+                [fileList addObjectsFromArray:fs];
+            }else{
+                [fileList addObject:file];
+            }
+        }
+    }
+    return fileList;
+}
+
 - (NSArray *) loadPackage:(NSString*)libPath{
 //    NSString *current = [self getCurrentDir];
     if([[NSFileManager defaultManager] createDirectoryAtPath:@"cache/" withIntermediateDirectories:YES attributes:nil error:nil]){
@@ -55,21 +78,44 @@
     if([UZKArchive pathIsAZip:sourceFile] && [UZKArchive pathIsAZip:patchFile]){
         NSError *sourceArchiveError = nil;
         NSError *patchArchiveError = nil;
+        NSDictionary *sourceSFO = [self loadSFO:sourceFile];
+        NSDictionary *patchSFO = [self loadSFO:patchFile];
+        if(![sourceSFO[@"ID"] isEqualToString:patchSFO[@"ID"]]){
+            block(4,0,@"SFO Info Not Match Or Not Exists.");
+            return NO;
+        }
         UZKArchive *sourceArchive = [[UZKArchive alloc] initWithPath:sourceFile error:&sourceArchiveError];
         UZKArchive *patchArchive = [[UZKArchive alloc] initWithPath:patchFile error:&patchArchiveError];
-        NSArray *patchFiles = [patchArchive listFilenames:nil];
-        long total = [patchFiles count];
-        int index = 0;
-        for(NSString *pFile in patchFiles){
-            index++;
-            NSData *pFileData = [patchArchive extractDataFromFile:pFile progress:nil error:nil];
-            if(pFileData.length > 0){
-                //Remove Source File if exists.
-                [sourceArchive deleteFile:pFile error:nil];
-                [sourceArchive writeData:pFileData filePath:pFile error:nil];
-                block(total,index);
-            }
-        }
+        NSString *cacheFolder = [[[Util shareInstance] cacheFolder] path];
+        NSString *tempFolder = [NSString stringWithFormat:@"%@/temp",cacheFolder];
+        [[NSFileManager defaultManager] removeItemAtPath:tempFolder error:nil];
+        [sourceArchive extractFilesTo:tempFolder overwrite:YES progress:^(UZKFileInfo * _Nonnull currentFile, CGFloat percentArchiveDecompressed) {
+            block(1,percentArchiveDecompressed,[currentFile.filename lastPathComponent]);
+        } error:nil];
+        
+        [patchArchive extractFilesTo:tempFolder overwrite:YES progress:^(UZKFileInfo * _Nonnull currentFile, CGFloat percentArchiveDecompressed) {
+            block(2,percentArchiveDecompressed,[currentFile.filename lastPathComponent]);
+        } error:nil];
+        block(3,0,@"Archiving...");
+        
+        [[NSFileManager defaultManager] removeItemAtPath:sourceFile error:nil];
+        NSString *zipPath = sourceFile;
+        [SSZipArchive createZipFileAtPath: zipPath withContentsOfDirectory: tempFolder];
+        [[NSFileManager defaultManager] removeItemAtPath:tempFolder error:nil];
+        
+//        NSArray *patchFiles = [patchArchive listFilenames:nil];
+//        long total = [patchFiles count];
+//        int index = 0;
+//        for(NSString *pFile in patchFiles){
+//            index++;
+//            NSData *pFileData = [patchArchive extractDataFromFile:pFile progress:nil error:nil];
+//            if(pFileData.length > 0){
+//                //Remove Source File if exists.
+//                [sourceArchive deleteFile:pFile error:nil];
+//                [sourceArchive writeData:pFileData filePath:pFile error:nil];
+//                
+//            }
+//        }
 
         return YES;
     }
@@ -184,6 +230,7 @@
                             }
                         }
                     }
+                    break;
                 }
             }
         }

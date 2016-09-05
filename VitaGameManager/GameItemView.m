@@ -41,25 +41,51 @@
 - (IBAction)PatchGame:(id)sender{
     NSButton *btn = sender;
     NSString *infoBackup = self.infoLabel.stringValue;
-
+    NSOpenPanel* panel = [NSOpenPanel openPanel];
+    [panel setCanChooseDirectories:NO];
+    [panel setCanCreateDirectories:NO];
+    [panel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result){
+        if (result == NSFileHandlingPanelOKButton) {
+            NSArray* urls = [panel URLs];
+            for (NSURL *url in urls) {
+                //here how to judge the url is a directory or a file
+                if (url.isFileURL) {
+                    VitaPackageHelper *helper = [[VitaPackageHelper alloc] init];
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [btn setEnabled:NO];
+                            [btn setNeedsDisplay];
+                            [self.infoLabel setStringValue:@"Preparing..."];
+                        });
+                        [helper patchPackage:game[@"file"] withPatchFile:[url path] withProgress:^(int state,float progress,NSString *file) {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                NSString *text = @"";
+                                if(state == 1){
+                                    text = [NSString stringWithFormat:@"Extracting %@ %.2f", file,progress];
+                                }else if (state == 2){
+                                    text = [NSString stringWithFormat:@"Patching %@ %.2f", file,progress];
+                                }else if(state == 3){
+                                    text = @"Rebuilding...";
+                                }else{
+                                    text = @"";
+                                    NSRunAlertPanel(@"Error", file, @"Ok", nil,nil);
+                                }
+                                if(text.length > 0)
+                                    [self.infoLabel setStringValue:text];
+                            });
+                        }];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [btn setEnabled:YES];
+                            [self.infoLabel setStringValue:infoBackup];
+                            [btn setNeedsDisplay];
+                            [self sendNotification:@"reload_library"];
+                        });
+                    });
+                }
+            }
+        }
+    }];
     
-    VitaPackageHelper *helper = [[VitaPackageHelper alloc] init];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [btn setEnabled:NO];
-            [btn setNeedsDisplay];
-        });
-        [helper patchPackage:@"/Volumes/Mac/PSVita_VPK/Test/source.zip" withPatchFile:@"/Volumes/Mac/PSVita_VPK/Test/patch.zip" withProgress:^(long total, int current) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.infoLabel setStringValue:[NSString stringWithFormat:@"Patching %.0f%%", (double)current / (double)total * 100 ]];
-            });
-        }];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [btn setEnabled:YES];
-            [self.infoLabel setStringValue:infoBackup];
-            [btn setNeedsDisplay];
-        });
-    });
     
 
 }

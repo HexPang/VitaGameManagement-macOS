@@ -43,7 +43,8 @@
                 }
             }
         }
-    }];}
+    }];
+}
 
 - (void)loadConfig {
     NSDictionary *settings = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"setting"];

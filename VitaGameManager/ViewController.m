@@ -84,21 +84,35 @@
     return [gameList count];
 }
 
+- (void)notificationRecv:(NSNotification *)notification {
+    NSDictionary *notify = notification.object;
+    NSString *action = notify[@"action"];
+    NSDictionary *g = notify[@"game"];
+    if([action isEqualToString:@"reload_library"]){
+        [self loadGames];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.collectionView setDelegate:self];
     [self.collectionView setDataSource:self];
     regionPrefix = @{@"PCSF":@"EU",@"PCSE":@"US",@"PCSG":@"JP",@"PCSH":@"HK",@"PCSD":@"CN",@"PCSB":@"AU",@"PCSA":@"US"};
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationRecv:) name:@"GAME_ITEM_NOTIFICATION" object:nil];
 }
 
-- (void)viewDidAppear{
+- (void)loadGames{
     VitaPackageHelper *helper = [[VitaPackageHelper alloc]init];
     NSURL *library = [[NSUserDefaults standardUserDefaults] URLForKey:@"library"];
     if(library != nil){
         gameList = [helper loadPackage:library.path];
         [self.collectionView reloadData];
     }
+}
+
+- (void)viewDidAppear{
+    [self loadGames];
 }
 
 @end
