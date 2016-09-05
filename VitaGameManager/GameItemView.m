@@ -39,31 +39,29 @@
 }
 
 - (IBAction)PatchGame:(id)sender{
+    NSButton *btn = sender;
+    NSString *infoBackup = self.infoLabel.stringValue;
+
+    
+    VitaPackageHelper *helper = [[VitaPackageHelper alloc] init];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *infoBackup = self.infoLabel.stringValue;
-        NSButton *btn = sender;
         dispatch_async(dispatch_get_main_queue(), ^{
             [btn setEnabled:NO];
             [btn setNeedsDisplay];
         });
-        
-        VitaPackageHelper *helper = [[VitaPackageHelper alloc] init];
-        
         [helper patchPackage:@"/Volumes/Mac/PSVita_VPK/Test/source.zip" withPatchFile:@"/Volumes/Mac/PSVita_VPK/Test/patch.zip" withProgress:^(long total, int current) {
-            [self.infoLabel setStringValue:[NSString stringWithFormat:@"Patching %.0f%%", (double)current / (double)total * 100 ]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.infoLabel setStringValue:[NSString stringWithFormat:@"Patching %.0f%%", (double)current / (double)total * 100 ]];
+            });
         }];
         dispatch_async(dispatch_get_main_queue(), ^{
             [btn setEnabled:YES];
             [self.infoLabel setStringValue:infoBackup];
             [btn setNeedsDisplay];
         });
-        
     });
-   
-
-
     
-    //    [self sendNotification:@"patch"];
+
 }
 
 - (void) viewWillDraw{

@@ -62,18 +62,13 @@
         int index = 0;
         for(NSString *pFile in patchFiles){
             index++;
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                NSData *pFileData = [patchArchive extractDataFromFile:pFile progress:nil error:nil];
-                if(pFileData.length > 0){
-                    //Remove Source File if exists.
-                    [sourceArchive deleteFile:pFile error:nil];
-                    [sourceArchive writeData:pFileData filePath:pFile error:nil];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        block(total,index);
-                    });
-                }
-            });
-           
+            NSData *pFileData = [patchArchive extractDataFromFile:pFile progress:nil error:nil];
+            if(pFileData.length > 0){
+                //Remove Source File if exists.
+                [sourceArchive deleteFile:pFile error:nil];
+                [sourceArchive writeData:pFileData filePath:pFile error:nil];
+                block(total,index);
+            }
         }
 
         return YES;
