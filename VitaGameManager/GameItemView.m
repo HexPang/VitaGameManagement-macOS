@@ -73,7 +73,8 @@
     NSString *sourceName = [[game[@"file"] lastPathComponent] stringByDeletingPathExtension];
     NSError *error = nil;
     NSURL *toPath = [NSURL fileURLWithPath:config[@"cma_path"]];
-    toPath =[[toPath URLByAppendingPathComponent:item.menu.supermenu.title] URLByAppendingPathComponent:item.title];
+    toPath = [toPath URLByAppendingPathComponent:@"PSAVEDATA"];
+    toPath =[[toPath URLByAppendingPathComponent:item.parentItem.title] URLByAppendingPathComponent:item.title];
     toPath = [toPath URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.BIN",sourceName]];
     NSURL *sourceURL = [NSURL fileURLWithPath:game[@"file"]];
     NSLog(@"Copying %@ to %@",[sourceURL path],[toPath path]);
@@ -82,6 +83,8 @@
     if(error != nil){
         NSRunAlertPanel(@"Copy Error", [error localizedDescription], @"Ok", nil,nil);
         NSLog(@"%@",[error localizedDescription]);
+    }else{
+        NSRunAlertPanel(@"Done", @"VPK Copied.Now please follow this steps:\n1.Disconnect USB with your PSVita\n2.Refresh CMA or QCMA database.\n3.Connect To Your PSVita.\n4.You know what to do!", @"Ok", nil,nil);
     }
 }
 
