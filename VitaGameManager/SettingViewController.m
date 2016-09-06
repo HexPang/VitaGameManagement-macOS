@@ -21,7 +21,7 @@
     }
 }
 
-- (IBAction)ChooseGameLibrary:(id)sender{
+- (IBAction)ChooseFolder:(id)sender{
     NSOpenPanel* panel = [NSOpenPanel openPanel];
     [panel setCanChooseDirectories:YES];
     [panel setCanCreateDirectories:YES];
@@ -37,8 +37,20 @@
                     if ([[NSFileManager defaultManager] fileExistsAtPath: url.path isDirectory: &isDir]
                         && isDir) {
                         // Here you can be certain the url exists and is a directory
-                        [[NSUserDefaults standardUserDefaults] setURL:url forKey:@"library"];
-                        [self updateLibraryURL];
+//                        [[NSUserDefaults standardUserDefaults] setURL:url forKey:@"library"];
+                        NSButton *btn = sender;
+                        if(btn.tag == 1){
+                            [self.libraryField setStringValue:[url path]];
+                        }else if(btn.tag == 2){
+                            BOOL isDir = false;
+                            if([[NSFileManager defaultManager] fileExistsAtPath:[[url URLByAppendingPathComponent:@"PSAVEDATA"] path] isDirectory:&isDir] && isDir)
+                            {
+                                NSTextField *CMA_PATH_VIEW = [self.view viewWithTag:11];
+                                [CMA_PATH_VIEW setStringValue:[url path]];
+                            }else{
+                                NSRunAlertPanel(@"Error", @"Not Found [PSAVEDATA] Folder In This Path.", @"Ok", nil,nil);
+                            }
+                        }
                     }
                 }
             }
@@ -51,7 +63,11 @@
     if(settings != nil){
         [self.vitaIPField setStringValue:settings[@"vita_ip"]];
         [self.vitaPortField setStringValue:settings[@"vita_port"]];
-        
+        NSTextField *CMA_PATH_VIEW = [self.view viewWithTag:11];
+        NSString *cma_path = settings[@"cma_path"];
+        if(cma_path != nil){
+            [CMA_PATH_VIEW setStringValue:cma_path];
+        }
     }
 }
 
@@ -63,9 +79,14 @@
     if(self.vitaPortField.stringValue != nil){
         [settings setObject:self.vitaPortField.stringValue forKey:@"vita_port"];
     }
+    NSTextField *CMA_PATH_VIEW = [self.view viewWithTag:11];
+    if(CMA_PATH_VIEW.stringValue != nil){
+        [settings setObject:CMA_PATH_VIEW.stringValue forKey:@"cma_path"];
+    }
     if([settings count] > 0){
         [[NSUserDefaults standardUserDefaults] setObject:settings forKey:@"setting"];
     }
+     [self updateLibraryURL];
 }
 
 - (IBAction)applySetting:(id)sender{

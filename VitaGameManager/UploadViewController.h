@@ -8,8 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Util.h"
-#import "FTPManager.h"
+#import "LxFTPRequest.h"
 
-@interface UploadViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource,FTPManagerDelegate>
+@interface UploadViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource>
 @property (weak,nonatomic) IBOutlet NSTableView *tableView;
 @end

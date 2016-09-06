@@ -7,8 +7,8 @@ PSVita Game Manager For macOS
 
 1. [DONE] SFO Parser
 2. [DONE] Game Listing
-3. [Not Stable?] Game Upload Via FTP
+3. [DONE] Game Upload Via FTP
 4. [DONE] Patching
-5. Package Split
+5. [WIP]Package Split
 6. Vita Management(Backup..)
 7. Sharing

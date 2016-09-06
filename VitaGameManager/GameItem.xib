@@ -105,6 +105,24 @@
                         <action selector="UploadSplitPackage:" target="Hz6-mo-xeY" id="7Pt-IP-ryt"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="BGX-Hz-J66"/>
+                <menuItem title="CMA" tag="99" id="mbP-3u-qnr">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="CMA" id="XoM-oh-O4I">
+                        <items>
+                            <menuItem title="SaveData" tag="100" id="vLA-Pp-Cou">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="SaveData" id="KKY-uX-emY">
+                                    <items>
+                                        <menuItem title="Item" id="p4k-za-6j3">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
             </items>
             <point key="canvasLocation" x="342" y="447.5"/>
         </menu>

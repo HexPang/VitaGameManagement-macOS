@@ -10,13 +10,13 @@
 		9A9BAC6F4330B70AD992998A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFC316B0F465399E3B5CB8D /* libPods.a */; };
 		C74047CF1D7983B200091F00 /* GameItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C74047CD1D7983B200091F00 /* GameItem.m */; };
 		C74047D01D7983B200091F00 /* GameItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74047CE1D7983B200091F00 /* GameItem.xib */; };
+		C7632D5A1D7E870D002A5007 /* LxFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C7632D591D7E870D002A5007 /* LxFTPRequest.m */; };
 		C7870CCB1D79BC2F006FB2AE /* VitaPackageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C7870CCA1D79BC2F006FB2AE /* VitaPackageHelper.m */; };
 		C7870CDD1D79F14C006FB2AE /* GameItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7870CDC1D79F14C006FB2AE /* GameItemView.m */; };
 		C7870CE11D7A02A8006FB2AE /* pic0.png in Resources */ = {isa = PBXBuildFile; fileRef = C7870CE01D7A02A8006FB2AE /* pic0.png */; };
 		C7870CE31D7A02D5006FB2AE /* icon0.png in Resources */ = {isa = PBXBuildFile; fileRef = C7870CE21D7A02D5006FB2AE /* icon0.png */; };
 		C7870CE91D7A0956006FB2AE /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7870CE81D7A0956006FB2AE /* SettingViewController.m */; };
 		C7870CEC1D7A0B4F006FB2AE /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7870CEB1D7A0B4F006FB2AE /* TabViewController.m */; };
-		C7870CF11D7A81C0006FB2AE /* FTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C7870CF01D7A81C0006FB2AE /* FTPManager.m */; };
 		C7870CF41D7AA2E3006FB2AE /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7870CF31D7AA2E3006FB2AE /* UploadViewController.m */; };
 		C7870CF71D7AAA32006FB2AE /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = C7870CF61D7AAA32006FB2AE /* Util.m */; };
 		C7870CF91D7AB87C006FB2AE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7870CF81D7AB87C006FB2AE /* CFNetwork.framework */; };
@@ -34,6 +34,8 @@
 		C74047CC1D7983B200091F00 /* GameItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameItem.h; sourceTree = "<group>"; };
 		C74047CD1D7983B200091F00 /* GameItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameItem.m; sourceTree = "<group>"; };
 		C74047CE1D7983B200091F00 /* GameItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameItem.xib; sourceTree = "<group>"; };
+		C7632D581D7E870D002A5007 /* LxFTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxFTPRequest.h; sourceTree = "<group>"; };
+		C7632D591D7E870D002A5007 /* LxFTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxFTPRequest.m; sourceTree = "<group>"; };
 		C7870CC31D79BBFF006FB2AE /* UnzipKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnzipKit.framework; path = VitaPackageHelper/UnzipKit.framework; sourceTree = "<group>"; };
 		C7870CC91D79BC2F006FB2AE /* VitaPackageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VitaPackageHelper.h; sourceTree = "<group>"; };
 		C7870CCA1D79BC2F006FB2AE /* VitaPackageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VitaPackageHelper.m; sourceTree = "<group>"; };
@@ -45,8 +47,6 @@
 		C7870CE81D7A0956006FB2AE /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		C7870CEA1D7A0B4F006FB2AE /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		C7870CEB1D7A0B4F006FB2AE /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
-		C7870CEF1D7A81C0006FB2AE /* FTPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPManager.h; sourceTree = "<group>"; };
-		C7870CF01D7A81C0006FB2AE /* FTPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPManager.m; sourceTree = "<group>"; };
 		C7870CF21D7AA2E3006FB2AE /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
 		C7870CF31D7AA2E3006FB2AE /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
 		C7870CF51D7AAA32006FB2AE /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
@@ -102,10 +102,26 @@
 			name = ViewItems;
 			sourceTree = "<group>";
 		};
+		C7632D511D7E867D002A5007 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C7632D541D7E86F3002A5007 /* LxFTPRequest */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		C7632D541D7E86F3002A5007 /* LxFTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				C7632D581D7E870D002A5007 /* LxFTPRequest.h */,
+				C7632D591D7E870D002A5007 /* LxFTPRequest.m */,
+			);
+			name = LxFTPRequest;
+			sourceTree = "<group>";
+		};
 		C7870CC01D79BBCC006FB2AE /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				C7870CEE1D7A81B2006FB2AE /* FTPManager */,
 				C7870CF51D7AAA32006FB2AE /* Util.h */,
 				C7870CF61D7AAA32006FB2AE /* Util.m */,
 			);
@@ -154,18 +170,10 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		C7870CEE1D7A81B2006FB2AE /* FTPManager */ = {
-			isa = PBXGroup;
-			children = (
-				C7870CEF1D7A81C0006FB2AE /* FTPManager.h */,
-				C7870CF01D7A81C0006FB2AE /* FTPManager.m */,
-			);
-			name = FTPManager;
-			sourceTree = "<group>";
-		};
 		C7A382181D796B26006449BF = {
 			isa = PBXGroup;
 			children = (
+				C7632D511D7E867D002A5007 /* Vendor */,
 				C7870CDE1D7A0299006FB2AE /* Resources */,
 				C7A382231D796B26006449BF /* VitaGameManager */,
 				C7A382221D796B26006449BF /* Products */,
@@ -340,12 +348,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7A3822C1D796B26006449BF /* ViewController.m in Sources */,
+				C7632D5A1D7E870D002A5007 /* LxFTPRequest.m in Sources */,
 				C7870CDD1D79F14C006FB2AE /* GameItemView.m in Sources */,
 				C7870CCB1D79BC2F006FB2AE /* VitaPackageHelper.m in Sources */,
 				C7870CF41D7AA2E3006FB2AE /* UploadViewController.m in Sources */,
 				C7870CE91D7A0956006FB2AE /* SettingViewController.m in Sources */,
 				C7870CEC1D7A0B4F006FB2AE /* TabViewController.m in Sources */,
-				C7870CF11D7A81C0006FB2AE /* FTPManager.m in Sources */,
 				C74047CF1D7983B200091F00 /* GameItem.m in Sources */,
 				C7870CF71D7AAA32006FB2AE /* Util.m in Sources */,
 				C7A382291D796B26006449BF /* main.m in Sources */,
