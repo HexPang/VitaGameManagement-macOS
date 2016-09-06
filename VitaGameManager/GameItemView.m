@@ -76,7 +76,7 @@
     NSURL *toPath = [NSURL fileURLWithPath:config[@"cma_path"]];
     toPath = [toPath URLByAppendingPathComponent:@"PSAVEDATA"];
     toPath =[[toPath URLByAppendingPathComponent:item.parentItem.title] URLByAppendingPathComponent:item.title];
-    toPath = [toPath URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.BIN",sourceName]];
+    toPath = [toPath URLByAppendingPathComponent:@"GAME.BIN"];
     NSURL *sourceURL = [NSURL fileURLWithPath:game[@"file"]];
     NSLog(@"Copying %@ to %@",[sourceURL path],[toPath path]);
     NSFileManager *fm = [NSFileManager defaultManager];
@@ -86,6 +86,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSError *error = nil;
         targetFile = [toPath path];
+        [fm removeItemAtURL:toPath error:NULL];
         [fm copyItemAtURL:[sourceURL filePathURL] toURL:[toPath filePathURL] error:&error];
 
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -97,7 +98,7 @@
                 NSRunAlertPanel(@"Copy Error", [error localizedDescription], @"Ok", nil,nil);
                 NSLog(@"%@",[error localizedDescription]);
             }else{
-                NSRunAlertPanel(@"Done", @"VPK Copied.Now please follow this steps:\n1.Disconnect USB with your PSVita\n2.Refresh CMA or QCMA database.\n3.Connect To Your PSVita.\n4.You know what to do!", @"Ok", nil,nil);
+                NSRunAlertPanel(@"Done", @"VPK Copied.Now please follow this steps:\n1.Disconnect USB with your PSVita\n2.Refresh CMA or QCMA database.\n3.Connect To Your PSVita.\n4.In ux0:/pspemu/PSP/SAVEDATA/GAME.BIN\n5.Rename to *.VPK\n6.You know what to do!", @"Ok", nil,nil);
             }
         });
     });
