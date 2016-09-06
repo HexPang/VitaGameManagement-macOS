@@ -29,7 +29,7 @@
 - (void) initCMAMenu{
     NSMenu *cma_menu = [self.uploadButton.menu itemAtIndex:4].submenu;
     NSDictionary *config = [[Util shareInstance] loadConfig];
-    if(config[@"cma_path"] == nil){
+    if(config[@"cma_path"] == nil || [config[@"cma_path"] length] == 0){
         
     }else{
         NSURL *CMA_URL = [NSURL fileURLWithPath:config[@"cma_path"]];
@@ -53,6 +53,18 @@
                 
                 NSMenuItem *item =[GAME_MENU addItemWithTitle:GAME_ID action:@selector(ChooseSaveData:) keyEquivalent:GAME_ID];
 //                [item setEnabled:NO];
+                NSURL *sfoURL = [[GAME_URL URLByAppendingPathComponent:GAME_ID] URLByAppendingPathComponent:@"param.sfo"];
+                NSData *sfoData = [NSData dataWithContentsOfURL:sfoURL];
+                                 
+                VitaPackageHelper *helper = [[VitaPackageHelper alloc] init];
+            
+                NSDictionary *sfo = [helper parserSFO:sfoData];
+                if(sfo.count > 0){
+                    if(sfo[@"TITLE"] != nil){
+                        item.title = sfo[@"TITLE"];
+                        [item setToolTip:GAME_ID];
+                    }
+                }
                 [item setTarget:self];
             }
             
@@ -75,7 +87,8 @@
     NSString *sourceName = game[@"info"][@"ID"];
     NSURL *toPath = [NSURL fileURLWithPath:config[@"cma_path"]];
     toPath = [toPath URLByAppendingPathComponent:@"PSAVEDATA"];
-    toPath =[[toPath URLByAppendingPathComponent:item.parentItem.title] URLByAppendingPathComponent:item.title];
+    NSString *GAME_ID = item.toolTip;
+    toPath =[[toPath URLByAppendingPathComponent:item.parentItem.title] URLByAppendingPathComponent:GAME_ID];
     toPath = [toPath URLByAppendingPathComponent:@"GAME.BIN"];
     NSURL *sourceURL = [NSURL fileURLWithPath:game[@"file"]];
     NSLog(@"Copying %@ to %@",[sourceURL path],[toPath path]);

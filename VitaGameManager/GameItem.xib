@@ -114,7 +114,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="SaveData" id="KKY-uX-emY">
                                     <items>
-                                        <menuItem title="Item" id="p4k-za-6j3">
+                                        <menuItem title="Please Set Your CMA Path." id="p4k-za-6j3">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                     </items>
