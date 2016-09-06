@@ -124,16 +124,38 @@
 }
 
 - (IBAction)UploadFullPackage:(id)sender{
-    [self sendNotification:@"upload"];
+    //[self sendNotification:@"upload"];
+    [self.uploadButton setEnabled:NO];
+    LxFTPRequest *ftpRequest = [[Util shareInstance] UploadWithFTP:game[@"file"] withProgress:^(int code, float progress, NSString *message) {
+        NSString *text = @"";
+        if(code == 1){
+            //Uploading...
+            text = [NSString stringWithFormat:@"Uploading...%f",progress];
+        }else if(code == 2){
+            //Success
+            text = @"Uploaded.";
+            [self.uploadButton setEnabled:YES];
+        }else if (code == 0){
+            //Error
+            text = message;
+            [self.uploadButton setEnabled:YES];
+        }
+        [self.infoLabel setStringValue:text];
+    }];
+  
+    BOOL succ = [ftpRequest start];
+    if(succ){
+        [self.infoLabel setStringValue:@"Connecting..."];
+    }else{
+        [self.infoLabel setStringValue:@"Can't Upload."];
+    }
 }
 
 - (IBAction)UploadButtonClicked:(id)sender{
     NSMenuItem *btn = sender;
     if(btn.tag == 1){
         //CMA SaveData
-        NSError *err = nil;
-        [[NSFileManager defaultManager] copyItemAtPath:@"" toPath:@"" error:&err];
-        
+      
     }
 }
 

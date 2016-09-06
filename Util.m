@@ -80,7 +80,7 @@ static Util *_instance = nil;
         
     };
     ftpRequest.failAction = ^(CFStreamErrorDomain domain, NSInteger error, NSString *errorMessage) {
-        uProgress(0,0,[NSString stringWithFormat:@"domain = %ld, error = %ld", domain, error]);
+        uProgress(0,0,errorMessage);
         NSLog(@"domain = %ld, error = %ld", domain, error);
     };
     return ftpRequest;
