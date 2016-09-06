@@ -699,11 +699,11 @@
                             <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWb-8K-3Tq">
                                 <rect key="frame" x="0.0" y="0.0" width="483" height="300"/>
                                 <clipView key="contentView" id="LRX-iz-f33">
-                                    <rect key="frame" x="1" y="0.0" width="481" height="299"/>
+                                    <rect key="frame" x="1" y="0.0" width="481" height="284"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="xOG-CQ-9zD" id="YHr-Qw-ZGs">
-                                            <rect key="frame" x="0.0" y="0.0" width="548" height="276"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="548" height="261"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -770,7 +770,7 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.014925373134328358" horizontal="YES" id="4VA-Qv-1lM">
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="4VA-Qv-1lM">
                                     <rect key="frame" x="1" y="284" width="481" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -822,8 +822,8 @@
                                         </collectionView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.0021645021645021645" horizontal="YES" id="fuG-t7-3mK">
-                                    <rect key="frame" x="1" y="207" width="448" height="16"/>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="fuG-t7-3mK">
+                                    <rect key="frame" x="1" y="208" width="448" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="RnL-eR-Ptn">
