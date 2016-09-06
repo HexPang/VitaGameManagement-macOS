@@ -239,11 +239,13 @@
             block(5,percentArchiveDecompressed,[[currentFile filename]  lastPathComponent]);
         } error:&archiveError];
         block(0,0,@"Moving...");
+        splitName = [NSString stringWithFormat:@"%@.VPK",miniPath];
         for(NSString *file in minRequirement){
             [[NSFileManager defaultManager] moveItemAtPath:[NSString stringWithFormat:@"%@/%@",dataPath,file] toPath:[NSString stringWithFormat:@"%@/%@",miniPath,file] error:nil];
+            
         }
-        block(0,0,@"Rebuilding Mini Package...");
-        [SSZipArchive createZipFileAtPath: [NSString stringWithFormat:@"%@.VPK",miniPath] withContentsOfDirectory: miniPath];
+        block(0,0,@"Rebuilding..");
+        [SSZipArchive createZipFileAtPath: splitName withContentsOfDirectory: miniPath];
         [[NSFileManager defaultManager] removeItemAtPath:miniPath error:nil];
         
 //        block(0,0,@"Rebuilding Data Package...");

@@ -814,7 +814,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView selectable="YES" allowsEmptySelection="NO" id="Tzb-l1-JYh">
-                                            <rect key="frame" x="0.0" y="0.0" width="1768" height="611"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="2296" height="611"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="5" minimumLineSpacing="5" scrollDirection="horizontal" id="gfl-qC-dkp">
                                                 <size key="itemSize" width="300" height="172"/>
@@ -824,7 +824,7 @@
                                         </collectionView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.00075757575757575758" horizontal="YES" id="fuG-t7-3mK">
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.00054112554112554113" horizontal="YES" id="fuG-t7-3mK">
                                     <rect key="frame" x="1" y="596" width="448" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>

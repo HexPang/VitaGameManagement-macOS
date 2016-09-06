@@ -35,7 +35,38 @@
 }
 
 - (IBAction)UploadGame:(id)sender{
+    //
+    NSButton* btn = sender;
+    [btn.menu popUpMenuPositioningItem:[btn.menu itemAtIndex:0] atLocation:[NSEvent mouseLocation] inView:nil];
+}
+
+- (IBAction)UploadFullPackage:(id)sender{
     [self sendNotification:@"upload"];
+}
+
+- (IBAction)UploadSplitPackage:(id)sender{
+    VitaPackageHelper *helper = [[VitaPackageHelper alloc] init];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *file = [helper splitPackage:game[@"file"] withProgress:^(int state, float progress, NSString *file) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSString *text = @"";
+                if(state == 0){
+                    text = file;
+                }else{
+                    text = [NSString stringWithFormat:@"Extraction %@ %.2f", file,progress];
+                }
+                if(text.length > 0)
+                    [self.infoLabel setStringValue:text];
+            });
+        }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.infoLabel setStringValue:@"Uploading..."];
+        });
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"GAME_ITEM_NOTIFICATION" object:@{@"game":game,@"action":@"splitTransfer",@"file":file} userInfo:nil];
+    });
+ 
+    
+
 }
 
 - (IBAction)PatchGame:(id)sender{
