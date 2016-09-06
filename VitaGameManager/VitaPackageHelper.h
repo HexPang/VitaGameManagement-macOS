@@ -19,4 +19,5 @@ typedef void (^patchProgressBlock)(int state,float progress,NSString *file);
 - (NSDictionary *) loadSFO:(NSString*) package;
 - (BOOL) patchPackage:(NSString *)sourceFile withPatchFile:(NSString*)patchFile;
 - (BOOL) patchPackage:(NSString *)sourceFile withPatchFile:(NSString*)patchFile withProgress:(patchProgressBlock)block;
+- (NSString *) splitPackage:(NSString *)sourcePackage withProgress:(patchProgressBlock)block;
 @end

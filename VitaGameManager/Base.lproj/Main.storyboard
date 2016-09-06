@@ -651,7 +651,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="PSVita Game Manager [v0.1.1] WIP" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="PSVita Game Manager [v0.1.2]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -772,8 +772,8 @@
                                     </subviews>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="4VA-Qv-1lM">
-                                    <rect key="frame" x="1" y="283" width="481" height="16"/>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.014925373134328358" horizontal="YES" id="4VA-Qv-1lM">
+                                    <rect key="frame" x="1" y="284" width="481" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="yvt-zl-KwA">
@@ -781,7 +781,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="xOG-CQ-9zD">
-                                    <rect key="frame" x="0.0" y="0.0" width="548" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="549" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -814,7 +814,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView selectable="YES" allowsEmptySelection="NO" id="Tzb-l1-JYh">
-                                            <rect key="frame" x="0.0" y="0.0" width="1240" height="611"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="2296" height="611"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="5" minimumLineSpacing="5" scrollDirection="horizontal" id="gfl-qC-dkp">
                                                 <size key="itemSize" width="300" height="172"/>
@@ -824,7 +824,7 @@
                                         </collectionView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="fuG-t7-3mK">
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.00054112554112554113" horizontal="YES" id="fuG-t7-3mK">
                                     <rect key="frame" x="1" y="596" width="448" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -841,24 +841,9 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Tzb-l1-JYh" id="4VM-ew-kgb"/>
-                        <outlet property="rightMenu" destination="PUM-yG-Zde" id="gkt-aQ-eYX"/>
                     </connections>
                 </viewController>
                 <customObject id="yrl-iy-lgH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <menu title="Menu" id="PUM-yG-Zde">
-                    <items>
-                        <menuItem title="Upload" id="SUQ-ab-Kev">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                        </menuItem>
-                        <menuItem title="Split" enabled="NO" id="98N-DB-Rzn">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                        </menuItem>
-                        <menuItem isSeparatorItem="YES" id="e3Z-hQ-06O"/>
-                        <menuItem title="Remove" id="rLD-mJ-8fu">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                        </menuItem>
-                    </items>
-                </menu>
             </objects>
             <point key="canvasLocation" x="765" y="599.5"/>
         </scene>

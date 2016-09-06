@@ -57,6 +57,9 @@
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <connections>
+                                <outlet property="menu" destination="4ZM-Yz-Nbw" id="rna-2t-ZI0"/>
+                            </connections>
                         </button>
                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="es5-fR-gbh">
                             <rect key="frame" x="81" y="0.0" width="81" height="32"/>
@@ -87,6 +90,24 @@
             </connections>
             <point key="canvasLocation" x="340" y="278"/>
         </customView>
+        <menu title="Upload Option" id="4ZM-Yz-Nbw">
+            <items>
+                <menuItem title="Full Package" id="neq-6R-y0n">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="UploadFullPackage:" target="Hz6-mo-xeY" id="ea7-Lx-td7"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="r5j-bi-M7T"/>
+                <menuItem title="SplitTransfer" id="b7Z-Pc-4Od">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="UploadSplitPackage:" target="Hz6-mo-xeY" id="7Pt-IP-ryt"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="342" y="447.5"/>
+        </menu>
     </objects>
     <resources>
         <image name="icon0" width="128" height="128"/>

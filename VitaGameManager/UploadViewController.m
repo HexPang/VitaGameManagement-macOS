@@ -111,6 +111,12 @@ NSString *message;
         [queue addObject:game];
         [self.tableView reloadData];
         [self doQueue];
+    }else if([action isEqualToString:@"splitTransfer"]){
+        NSMutableDictionary *game = [[NSMutableDictionary alloc] initWithDictionary:g];
+        game[@"file"] = notify[@"file"];
+        [queue addObject:game];
+        [self.tableView reloadData];
+        [self doQueue];
     }
 }
 

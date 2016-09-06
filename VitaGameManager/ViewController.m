@@ -31,7 +31,7 @@
     GameItemView *itemView = (GameItemView *)item.view;
     [itemView setGame:game];
     [itemView.titleLabel setStringValue:game[@"info"][@"TITLE"]];
-    NSString *cacheDir = [[[Util shareInstance] cacheFolder] path];
+    NSString *cacheDir = [[[Util shareInstance] getCacheFolder:@"icon"] path];
     NSString *dir = [NSString stringWithFormat:@"%@/%@",cacheDir,game[@"info"][@"CONTENT_ID"]];
     NSString *iconFile =[NSString stringWithFormat:@"%@/icon0.png",dir];
     NSString *picFile = [NSString stringWithFormat:@"%@/pic0.png",dir];
@@ -104,6 +104,10 @@
 
 - (void)loadGames{
     VitaPackageHelper *helper = [[VitaPackageHelper alloc]init];
+//    [helper splitPackage:@"/Volumes/Mac/PSVita_VPK/Split/MC.VPK" withProgress:^(int state, float progress, NSString *file) {
+////        NSLog(@"%@ - %.2f",file,progress);
+//    }];
+//    return;
     NSURL *library = [[NSUserDefaults standardUserDefaults] URLForKey:@"library"];
     if(library != nil){
         gameList = [helper loadPackage:library.path];

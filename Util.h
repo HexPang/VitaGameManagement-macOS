@@ -11,5 +11,5 @@
 @interface Util : NSObject
 +(instancetype) shareInstance ;
 - (NSDictionary *) loadConfig;
-- (NSURL *) cacheFolder;
+- (NSURL *) getCacheFolder:(NSString *)name;
 @end

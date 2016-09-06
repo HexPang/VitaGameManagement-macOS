@@ -38,7 +38,6 @@
 }
 
 - (NSArray *) loadPackage:(NSString*)libPath{
-//    NSString *current = [self getCurrentDir];
     if([[NSFileManager defaultManager] createDirectoryAtPath:@"cache/" withIntermediateDirectories:YES attributes:nil error:nil]){
         
     }
@@ -86,7 +85,7 @@
         }
         UZKArchive *sourceArchive = [[UZKArchive alloc] initWithPath:sourceFile error:&sourceArchiveError];
         UZKArchive *patchArchive = [[UZKArchive alloc] initWithPath:patchFile error:&patchArchiveError];
-        NSString *cacheFolder = [[[Util shareInstance] cacheFolder] path];
+        NSString *cacheFolder = [[[Util shareInstance] getCacheFolder:@"temp"] path];
         NSString *tempFolder = [NSString stringWithFormat:@"%@/temp",cacheFolder];
         [[NSFileManager defaultManager] removeItemAtPath:tempFolder error:nil];
         [sourceArchive extractFilesTo:tempFolder overwrite:YES progress:^(UZKFileInfo * _Nonnull currentFile, CGFloat percentArchiveDecompressed) {
@@ -102,21 +101,6 @@
         NSString *zipPath = sourceFile;
         [SSZipArchive createZipFileAtPath: zipPath withContentsOfDirectory: tempFolder];
         [[NSFileManager defaultManager] removeItemAtPath:tempFolder error:nil];
-        
-//        NSArray *patchFiles = [patchArchive listFilenames:nil];
-//        long total = [patchFiles count];
-//        int index = 0;
-//        for(NSString *pFile in patchFiles){
-//            index++;
-//            NSData *pFileData = [patchArchive extractDataFromFile:pFile progress:nil error:nil];
-//            if(pFileData.length > 0){
-//                //Remove Source File if exists.
-//                [sourceArchive deleteFile:pFile error:nil];
-//                [sourceArchive writeData:pFileData filePath:pFile error:nil];
-//                
-//            }
-//        }
-
         return YES;
     }
     return NO;
@@ -207,7 +191,7 @@
                                 NSString *CONTENT_ID = split[0];
                                 [dictionary setObject:CONTENT_ID forKey:@"ID"];
                                 NSArray *dump = @[@"sce_sys/pic0.png",@"sce_sys/icon0.png"];
-                                NSString *dir = [[[Util shareInstance] cacheFolder] path];
+                                NSString *dir = [[[Util shareInstance] getCacheFolder:@"icon"] path];
                                 for (NSString *file in dump) {
                                     NSString *fileName = [file lastPathComponent];
                                     NSString *gameID = dictionary[@"CONTENT_ID"];
@@ -236,5 +220,39 @@
         }
     }
     return dictionary;
+}
+//eboot.bin,sce_sys,sce_module
+- (NSString *) splitPackage:(NSString *)sourcePackage withProgress:(patchProgressBlock)block{
+    NSString *splitName = @"";
+    NSError *archiveError = nil;
+    UZKArchive *archive = [[UZKArchive alloc] initWithPath:sourcePackage error:&archiveError];
+    NSArray *minRequirement = @[@"eboot.bin",@"sce_sys/",@"sce_module"];
+    if(archive){
+        NSURL *splitURL = [[Util shareInstance] getCacheFolder:@"SplitTransfer"];
+        NSString *miniPath = [[splitURL URLByAppendingPathComponent:@"mini"] path];
+        NSString *dataPath = [[splitURL URLByAppendingPathComponent:@"data"] path];
+        [[NSFileManager defaultManager] removeItemAtPath:miniPath error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:dataPath error:nil];
+        [[NSFileManager defaultManager] createDirectoryAtPath:miniPath withIntermediateDirectories:NO attributes:nil error:nil];
+        block(0,0,@"Extracting...");
+        [archive extractFilesTo:dataPath overwrite:YES progress:^(UZKFileInfo * _Nonnull currentFile, CGFloat percentArchiveDecompressed) {
+            block(5,percentArchiveDecompressed,[[currentFile filename]  lastPathComponent]);
+        } error:&archiveError];
+        block(0,0,@"Moving...");
+        splitName = [NSString stringWithFormat:@"%@.VPK",miniPath];
+        for(NSString *file in minRequirement){
+            [[NSFileManager defaultManager] moveItemAtPath:[NSString stringWithFormat:@"%@/%@",dataPath,file] toPath:[NSString stringWithFormat:@"%@/%@",miniPath,file] error:nil];
+            
+        }
+        block(0,0,@"Rebuilding..");
+        [SSZipArchive createZipFileAtPath: splitName withContentsOfDirectory: miniPath];
+        [[NSFileManager defaultManager] removeItemAtPath:miniPath error:nil];
+        
+//        block(0,0,@"Rebuilding Data Package...");
+//        [SSZipArchive createZipFileAtPath: [NSString stringWithFormat:@"%@.VPK",miniPath] withContentsOfDirectory: miniPath];
+//        [[NSFileManager defaultManager] removeItemAtPath:miniPath error:nil];
+    }
+    
+    return splitName;
 }
 @end
