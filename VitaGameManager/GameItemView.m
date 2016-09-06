@@ -45,6 +45,7 @@
 }
 
 - (IBAction)UploadSplitPackage:(id)sender{
+    [self.uploadButton setEnabled:NO];
     VitaPackageHelper *helper = [[VitaPackageHelper alloc] init];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *file = [helper splitPackage:game[@"file"] withProgress:^(int state, float progress, NSString *file) {
@@ -59,10 +60,28 @@
                     [self.infoLabel setStringValue:text];
             });
         }];
+  
+        LxFTPRequest *ftpRequest = [[Util shareInstance] UploadWithFTP:file withProgress:^(int code, float progress, NSString *message) {
+            NSString *text = @"";
+            if(code == 1){
+                //Uploading...
+                text = [NSString stringWithFormat:@"Uploading...%f",progress];
+            }else if(code == 2){
+                //Success
+                text = @"Uploaded.";
+                [self.uploadButton setEnabled:YES];
+            }else if (code == 0){
+                //Error
+                text = message;
+                [self.uploadButton setEnabled:YES];
+            }
+            [self.infoLabel setStringValue:text];
+        }];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.infoLabel setStringValue:@"Uploading..."];
+            [self.infoLabel setStringValue:@"Connecting..."];
+            
         });
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"GAME_ITEM_NOTIFICATION" object:@{@"game":game,@"action":@"splitTransfer",@"file":file} userInfo:nil];
+        BOOL succ = [ftpRequest start];
     });
  
     

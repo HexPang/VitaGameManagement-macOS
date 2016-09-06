@@ -231,22 +231,29 @@
         NSURL *splitURL = [[Util shareInstance] getCacheFolder:@"SplitTransfer"];
         NSString *miniPath = [[splitURL URLByAppendingPathComponent:@"mini"] path];
         NSString *dataPath = [[splitURL URLByAppendingPathComponent:@"data"] path];
-        [[NSFileManager defaultManager] removeItemAtPath:miniPath error:nil];
-        [[NSFileManager defaultManager] removeItemAtPath:dataPath error:nil];
-        [[NSFileManager defaultManager] createDirectoryAtPath:miniPath withIntermediateDirectories:NO attributes:nil error:nil];
-        block(0,0,@"Extracting...");
-        [archive extractFilesTo:dataPath overwrite:YES progress:^(UZKFileInfo * _Nonnull currentFile, CGFloat percentArchiveDecompressed) {
-            block(5,percentArchiveDecompressed,[[currentFile filename]  lastPathComponent]);
-        } error:&archiveError];
-        block(0,0,@"Moving...");
-        splitName = [NSString stringWithFormat:@"%@.VPK",miniPath];
-        for(NSString *file in minRequirement){
-            [[NSFileManager defaultManager] moveItemAtPath:[NSString stringWithFormat:@"%@/%@",dataPath,file] toPath:[NSString stringWithFormat:@"%@/%@",miniPath,file] error:nil];
+        NSString *sourceName = [sourcePackage lastPathComponent];
+        sourceName = [sourceName stringByDeletingPathExtension];
+        splitName = [NSString stringWithFormat:@"%@/%@.MINI.VPK",[splitURL path],sourceName];
+        if(![[NSFileManager defaultManager] fileExistsAtPath:splitName]){
+            [[NSFileManager defaultManager] removeItemAtPath:miniPath error:nil];
+            [[NSFileManager defaultManager] removeItemAtPath:dataPath error:nil];
+            [[NSFileManager defaultManager] createDirectoryAtPath:miniPath withIntermediateDirectories:NO attributes:nil error:nil];
+            block(0,0,@"Extracting...");
+            [archive extractFilesTo:dataPath overwrite:YES progress:^(UZKFileInfo * _Nonnull currentFile, CGFloat percentArchiveDecompressed) {
+                block(5,percentArchiveDecompressed,[[currentFile filename]  lastPathComponent]);
+            } error:&archiveError];
+            block(0,0,@"Moving...");
             
+            
+            for(NSString *file in minRequirement){
+                [[NSFileManager defaultManager] moveItemAtPath:[NSString stringWithFormat:@"%@/%@",dataPath,file] toPath:[NSString stringWithFormat:@"%@/%@",miniPath,file] error:nil];
+                
+            }
+            block(0,0,@"Rebuilding..");
+            [SSZipArchive createZipFileAtPath: splitName withContentsOfDirectory: miniPath];
+            [[NSFileManager defaultManager] removeItemAtPath:miniPath error:nil];
         }
-        block(0,0,@"Rebuilding..");
-        [SSZipArchive createZipFileAtPath: splitName withContentsOfDirectory: miniPath];
-        [[NSFileManager defaultManager] removeItemAtPath:miniPath error:nil];
+        
         
 //        block(0,0,@"Rebuilding Data Package...");
 //        [SSZipArchive createZipFileAtPath: [NSString stringWithFormat:@"%@.VPK",miniPath] withContentsOfDirectory: miniPath];
