@@ -164,43 +164,46 @@
     
     VitaPackageHelper *helper = [[VitaPackageHelper alloc] init];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{[self.uploadButton setEnabled:NO];});
         NSString *file = [helper splitPackage:game[@"file"] withProgress:^(int state, float progress, NSString *file) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSString *text = @"";
                 if(state == 0){
                     text = file;
                 }else{
-                    text = [NSString stringWithFormat:@"Extraction %@ %.2f", file,progress];
+                    text = [NSString stringWithFormat:@"Extraction %@ %.2f%%", file,progress * 100];
                 }
                 if(text.length > 0)
                     [self.infoLabel setStringValue:text];
             });
         }];
-  
-        LxFTPRequest *ftpRequest = [[Util shareInstance] UploadWithFTP:file withName:game[@"info"][@"ID"] withProgress:^(int code, float progress, NSString *message) {
-            NSString *text = @"";
-            if(code == 1){
-                //Uploading...
-                text = [NSString stringWithFormat:@"Uploading.%@ %.2f%%",message,progress];
-            }else if(code == 2){
-                //Success
-                text = @"Uploaded.";
-                [self.uploadButton setEnabled:YES];
-            }else if (code == 0){
-                //Error
-                text = message;
-                [self.uploadButton setEnabled:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            LxFTPRequest *ftpRequest = [[Util shareInstance] UploadWithFTP:file withName:[NSString stringWithFormat:@"%@-MINI",game[@"info"][@"ID"]] withProgress:^(int code, float progress, NSString *message) {
+                NSString *text = @"";
+                if(code == 1){
+                    //Uploading...
+                    text = [NSString stringWithFormat:@"Uploading.%@ %.2f%%",message,progress];
+                }else if(code == 2){
+                    //Success
+                    text = @"Uploaded.";
+                    [self.uploadButton setEnabled:YES];
+                }else if (code == 0){
+                    //Error
+                    text = message;
+                    [self.uploadButton setEnabled:YES];
+                }
+                [self.infoLabel setStringValue:text];
+            }];
+            
+            BOOL succ = [ftpRequest start];
+            if(succ){
+                [self.uploadButton setEnabled:NO];
+                [self.infoLabel setStringValue:@"Connecting..."];
+            }else{
+                [self.infoLabel setStringValue:@"Can't Upload."];
             }
-            [self.infoLabel setStringValue:text];
-        }];
-        
-        BOOL succ = [ftpRequest start];
-        if(succ){
-            [self.uploadButton setEnabled:NO];
-            [self.infoLabel setStringValue:@"Connecting..."];
-        }else{
-            [self.infoLabel setStringValue:@"Can't Upload."];
-        }
+        });
+       
     });
  
     
