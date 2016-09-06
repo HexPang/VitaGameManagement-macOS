@@ -651,7 +651,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="PSVita Game Manager [v0.1.3]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="PSVita Game Manager [v0.1.4]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -670,9 +670,8 @@
             <objects>
                 <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="sgQ-2E-SEQ" customClass="TabViewController" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem label="My Games" identifier="" image="NSFolder" id="LeV-G9-2Qm"/>
+                        <tabViewItem label="My Games" identifier="" image="NSComputer" id="LeV-G9-2Qm"/>
                         <tabViewItem label="Settings" identifier="" image="NSAdvanced" id="7CQ-id-nFP"/>
-                        <tabViewItem label="Uploads" image="NSNetwork" id="eAE-oa-1W0"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="OsH-VB-Ka7">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -683,7 +682,6 @@
                     <connections>
                         <segue destination="kwe-sS-65A" kind="relationship" relationship="tabItems" id="Ya6-rJ-ckb"/>
                         <segue destination="3g6-bx-T3H" kind="relationship" relationship="tabItems" id="UZu-zd-aAT"/>
-                        <segue destination="EU6-Sk-oOH" kind="relationship" relationship="tabItems" id="cBp-I8-eWw"/>
                     </connections>
                 </tabViewController>
                 <customObject id="nP8-mz-0RV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -949,7 +947,6 @@
     </scenes>
     <resources>
         <image name="NSAdvanced" width="32" height="32"/>
-        <image name="NSFolder" width="32" height="32"/>
-        <image name="NSNetwork" width="32" height="32"/>
+        <image name="NSComputer" width="32" height="32"/>
     </resources>
 </document>
