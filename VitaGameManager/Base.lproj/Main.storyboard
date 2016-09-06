@@ -651,7 +651,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="PSVita Game Manager [v0.1.2]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="PSVita Game Manager [v0.1.3]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -670,9 +670,9 @@
             <objects>
                 <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="sgQ-2E-SEQ" customClass="TabViewController" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem label="My Games" identifier="" image="NSComputer" id="LeV-G9-2Qm"/>
-                        <tabViewItem label="Uploads" image="NSListViewTemplate" id="b1G-SG-J18"/>
+                        <tabViewItem label="My Games" identifier="" image="NSFolder" id="LeV-G9-2Qm"/>
                         <tabViewItem label="Settings" identifier="" image="NSAdvanced" id="7CQ-id-nFP"/>
+                        <tabViewItem label="Uploads" image="NSNetwork" id="eAE-oa-1W0"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="OsH-VB-Ka7">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -682,8 +682,8 @@
                     </tabView>
                     <connections>
                         <segue destination="kwe-sS-65A" kind="relationship" relationship="tabItems" id="Ya6-rJ-ckb"/>
-                        <segue destination="EU6-Sk-oOH" kind="relationship" relationship="tabItems" id="B9h-76-RoW"/>
                         <segue destination="3g6-bx-T3H" kind="relationship" relationship="tabItems" id="UZu-zd-aAT"/>
+                        <segue destination="EU6-Sk-oOH" kind="relationship" relationship="tabItems" id="cBp-I8-eWw"/>
                     </connections>
                 </tabViewController>
                 <customObject id="nP8-mz-0RV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -781,7 +781,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="xOG-CQ-9zD">
-                                    <rect key="frame" x="0.0" y="0.0" width="549" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="548" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -797,24 +797,24 @@
                 </viewController>
                 <customObject id="QKP-fx-re7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="91.5" y="1149"/>
+            <point key="canvasLocation" x="76.5" y="1259"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nFx-rM-xfi">
             <objects>
                 <viewController id="kwe-sS-65A" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="NNq-zJ-iyN">
-                        <rect key="frame" x="0.0" y="0.0" width="714" height="613"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="224"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prB-pD-LQs">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="613"/>
+                            <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prB-pD-LQs">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="224"/>
                                 <clipView key="contentView" id="uwq-sm-d6B">
-                                    <rect key="frame" x="1" y="1" width="448" height="611"/>
+                                    <rect key="frame" x="1" y="1" width="448" height="222"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView selectable="YES" allowsEmptySelection="NO" id="Tzb-l1-JYh">
-                                            <rect key="frame" x="0.0" y="0.0" width="2296" height="611"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="2296" height="222"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="5" minimumLineSpacing="5" scrollDirection="horizontal" id="gfl-qC-dkp">
                                                 <size key="itemSize" width="300" height="172"/>
@@ -824,8 +824,8 @@
                                         </collectionView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.00054112554112554113" horizontal="YES" id="fuG-t7-3mK">
-                                    <rect key="frame" x="1" y="596" width="448" height="16"/>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" doubleValue="0.0021645021645021645" horizontal="YES" id="fuG-t7-3mK">
+                                    <rect key="frame" x="1" y="207" width="448" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="RnL-eR-Ptn">
@@ -845,7 +845,7 @@
                 </viewController>
                 <customObject id="yrl-iy-lgH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="765" y="599.5"/>
+            <point key="canvasLocation" x="683" y="726"/>
         </scene>
         <!--Setting View Controller-->
         <scene sceneID="1ff-WC-gb4">
@@ -873,7 +873,7 @@
                                     <action selector="applySetting:" target="3g6-bx-T3H" id="t2r-1G-ZbL"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DEi-bp-Bvq">
+                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="DEi-bp-Bvq">
                                 <rect key="frame" x="299" y="252" width="69" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="57" id="VEx-8r-kRh"/>
@@ -883,11 +883,32 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="ChooseGameLibrary:" target="3g6-bx-T3H" id="jgc-pS-1Dl"/>
+                                    <action selector="ChooseFolder:" target="3g6-bx-T3H" id="zI8-hd-uBP"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" tag="11" translatesAutoresizingMaskIntoConstraints="NO" id="7Pn-Ua-kBp">
+                                <rect key="frame" x="20" y="228" width="277" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Set your CMA Folder." drawsBackground="YES" id="fnB-Zm-bkb">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="xdH-v6-m0V">
+                                <rect key="frame" x="299" y="222" width="69" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="xjB-eA-Gpa"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IOZ-FO-TC7">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="ChooseFolder:" target="3g6-bx-T3H" id="yL9-i2-aKD"/>
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="an4-PN-YuW">
-                                <rect key="frame" x="20" y="226" width="190" height="22"/>
+                                <rect key="frame" x="20" y="196" width="190" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Set your PSVita IP" drawsBackground="YES" id="Pzr-2D-IFa">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -895,7 +916,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2V-xT-7SR">
-                                <rect key="frame" x="218" y="226" width="79" height="22"/>
+                                <rect key="frame" x="218" y="196" width="79" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="Port" drawsBackground="YES" id="FmH-bN-Lah">
                                     <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="lSc-ec-PbV"/>
                                     <font key="font" metaFont="system"/>
@@ -905,10 +926,13 @@
                             </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="xdH-v6-m0V" firstAttribute="leading" secondItem="7Pn-Ua-kBp" secondAttribute="trailing" constant="8" id="BQ8-Uw-NYY"/>
+                            <constraint firstAttribute="trailing" secondItem="xdH-v6-m0V" secondAttribute="trailing" constant="20" id="CkO-Kd-0Cp"/>
                             <constraint firstAttribute="trailing" secondItem="DEi-bp-Bvq" secondAttribute="trailing" constant="20" id="NMv-SQ-vmp"/>
                             <constraint firstItem="u2E-KJ-HOL" firstAttribute="leading" secondItem="1Ft-QL-nf3" secondAttribute="leading" constant="20" id="Ov9-pT-o21"/>
                             <constraint firstItem="DEi-bp-Bvq" firstAttribute="leading" secondItem="u2E-KJ-HOL" secondAttribute="trailing" constant="8" id="gFG-ON-vaq"/>
                             <constraint firstAttribute="bottom" secondItem="0wr-BN-9Bu" secondAttribute="bottom" constant="20" id="iSo-A9-WCR"/>
+                            <constraint firstItem="7Pn-Ua-kBp" firstAttribute="leading" secondItem="1Ft-QL-nf3" secondAttribute="leading" constant="20" id="yWj-Vc-Wvn"/>
                             <constraint firstAttribute="trailing" secondItem="0wr-BN-9Bu" secondAttribute="trailing" constant="20" id="yyJ-z2-jJ5"/>
                         </constraints>
                     </view>
@@ -925,7 +949,7 @@
     </scenes>
     <resources>
         <image name="NSAdvanced" width="32" height="32"/>
-        <image name="NSComputer" width="32" height="32"/>
-        <image name="NSListViewTemplate" width="14" height="10"/>
+        <image name="NSFolder" width="32" height="32"/>
+        <image name="NSNetwork" width="32" height="32"/>
     </resources>
 </document>

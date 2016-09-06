@@ -7,7 +7,6 @@
 //
 
 #import "GameItemView.h"
-
 @implementation GameItemView{
     NSDictionary *game;
 }
@@ -25,6 +24,40 @@
     
 }
 
+- (void) initCMAMenu{
+    NSMenu *cma_menu = [self.uploadButton.menu itemAtIndex:4].submenu;
+    NSDictionary *config = [[Util shareInstance] loadConfig];
+    if(config[@"cma_path"] == nil){
+        
+    }else{
+        NSURL *CMA_URL = [NSURL fileURLWithPath:config[@"cma_path"]];
+        NSMenu *saveDataMenu = [cma_menu itemAtIndex:0].submenu;
+        NSArray *SAVE_USERS = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:[CMA_URL URLByAppendingPathComponent:@"PSAVEDATA"] includingPropertiesForKeys:nil options:0 error:nil];
+        [saveDataMenu removeAllItems];
+//        //Remove all sub-menus
+        for(NSURL *PATH in SAVE_USERS){
+            NSString *NAME_ID = [PATH lastPathComponent];
+//            NSMenu *userMenu = [[NSMenu alloc] initWithTitle:NAME_ID];
+            //[saveDataMenu setSubmenu:userMenu forItem:nil];
+            NSMenuItem *userMenu = [saveDataMenu addItemWithTitle:NAME_ID action:nil keyEquivalent:NAME_ID];
+    
+            NSURL *GAME_URL = [NSURL fileURLWithPath:[PATH path]];
+            NSArray *GAMES = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:GAME_URL includingPropertiesForKeys:nil options:0 error:nil];
+            NSMenu *GAME_MENU = [[NSMenu alloc] initWithTitle:@"GAMES"];
+            [userMenu setSubmenu:GAME_MENU];
+            [GAME_MENU setAutoenablesItems:NO];
+            for(NSURL *GAME in GAMES){
+                NSString *GAME_ID = [GAME lastPathComponent];
+                
+                NSMenuItem *item =[GAME_MENU addItemWithTitle:GAME_ID action:@selector(ChooseSaveData:) keyEquivalent:GAME_ID];
+//                [item setEnabled:NO];
+                [item setTarget:self];
+            }
+            
+        }
+    }
+}
+
 - (void)setGame:(NSDictionary *)info{
     game = info;
 }
@@ -34,14 +67,42 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"GAME_ITEM_NOTIFICATION" object:@{@"game":game,@"action":action} userInfo:nil];
 }
 
+- (IBAction)ChooseSaveData:(id)sender{
+     NSDictionary *config = [[Util shareInstance] loadConfig];
+    NSMenuItem *item = sender;
+    NSString *sourceName = [[game[@"file"] lastPathComponent] stringByDeletingPathExtension];
+    NSError *error = nil;
+    NSURL *toPath = [NSURL fileURLWithPath:config[@"cma_path"]];
+    toPath =[[toPath URLByAppendingPathComponent:item.menu.supermenu.title] URLByAppendingPathComponent:item.title];
+    toPath = [toPath URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.BIN",sourceName]];
+    NSURL *sourceURL = [NSURL fileURLWithPath:game[@"file"]];
+    NSLog(@"Copying %@ to %@",[sourceURL path],[toPath path]);
+    NSFileManager *fm = [NSFileManager defaultManager];
+    [fm copyItemAtURL:[sourceURL filePathURL] toURL:[toPath filePathURL] error:NULL];
+    if(error != nil){
+        NSRunAlertPanel(@"Copy Error", [error localizedDescription], @"Ok", nil,nil);
+        NSLog(@"%@",[error localizedDescription]);
+    }
+}
+
 - (IBAction)UploadGame:(id)sender{
-    //
     NSButton* btn = sender;
+    
     [btn.menu popUpMenuPositioningItem:[btn.menu itemAtIndex:0] atLocation:[NSEvent mouseLocation] inView:nil];
 }
 
 - (IBAction)UploadFullPackage:(id)sender{
     [self sendNotification:@"upload"];
+}
+
+- (IBAction)UploadButtonClicked:(id)sender{
+    NSMenuItem *btn = sender;
+    if(btn.tag == 1){
+        //CMA SaveData
+        NSError *err = nil;
+        [[NSFileManager defaultManager] copyItemAtPath:@"" toPath:@"" error:&err];
+        
+    }
 }
 
 - (IBAction)UploadSplitPackage:(id)sender{
@@ -145,6 +206,7 @@
     [self.uploadButton setTarget:self];
     [self.patchButton setAction:@selector(PatchGame:)];
     [self.patchButton setTarget:self];
+    [self initCMAMenu];
 }
 
 @end
