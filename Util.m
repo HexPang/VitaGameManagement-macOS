@@ -53,14 +53,14 @@ static Util *_instance = nil;
     return [dirPath URLByAppendingPathComponent:name];
 }
 
-- (LxFTPRequest *) UploadWithFTP:(NSString *)localFile withProgress:(UploadProgress) uProgress{
-//    localFile = [localFile stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+- (LxFTPRequest *) UploadWithFTP:(NSString *)localFile withName:(NSString *)name withProgress:(UploadProgress) uProgress{
     LxFTPRequest *ftpRequest = [LxFTPRequest uploadRequest];
     NSDictionary *config = [[Util shareInstance] loadConfig];
-    NSString *serverURL = [NSString stringWithFormat:@"ftp://%@:%@/ux0%%30/",config[@"vita_ip"],config[@"vita_port"]];
-    
-    ftpRequest = [LxFTPRequest uploadRequest];
-    ftpRequest.serverURL = [NSURL URLWithString:serverURL];
+    NSURL *sURL = [NSURL URLWithString:[NSString stringWithFormat:@"ftp://%@:%@/",config[@"vita_ip"],config[@"vita_port"]]];
+    sURL = [sURL URLByAppendingPathComponent:@"ux0"];
+    sURL = [sURL URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.VPK",name]];
+    NSLog(@"Uploading to %@",sURL);
+    ftpRequest.serverURL = sURL;
     
     ftpRequest.username = @"anonymous";
     ftpRequest.password = @"";
@@ -70,7 +70,6 @@ static Util *_instance = nil;
     
     ftpRequest.progressAction = ^(NSInteger totalSize, NSInteger finishedSize, CGFloat finishedPercent) {
         uProgress(1,finishedPercent,@"");
-        //NSLog(@"totalSize = %ld, finishedSize = %ld, finishedPercent = %f", totalSize, finishedSize, finishedPercent);
     };
 
     ftpRequest.successAction = ^(Class resultClass, id result) {

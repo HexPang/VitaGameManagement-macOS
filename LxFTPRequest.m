@@ -125,9 +125,10 @@ static NSInteger const UPLOAD_BUFFER_SIZE = 1024;
 - (void)setServerURL:(NSURL *)serverURL
 {
     if (serverURL.absoluteString.isValidateFTPURLString) {
-        
         if (_serverURL != serverURL) {
-            _serverURL = serverURL;
+            NSString *url = [serverURL absoluteString];
+            url = [url stringByReplacingOccurrencesOfString:@"ux0" withString:@"ux0:"];
+            _serverURL = [NSURL URLWithString:url];
         }
     }
     else {
