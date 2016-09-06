@@ -78,7 +78,7 @@
     NSURL *sourceURL = [NSURL fileURLWithPath:game[@"file"]];
     NSLog(@"Copying %@ to %@",[sourceURL path],[toPath path]);
     NSFileManager *fm = [NSFileManager defaultManager];
-    [fm copyItemAtURL:[sourceURL filePathURL] toURL:[toPath filePathURL] error:NULL];
+    [fm copyItemAtURL:[sourceURL filePathURL] toURL:[toPath filePathURL] error:error];
     if(error != nil){
         NSRunAlertPanel(@"Copy Error", [error localizedDescription], @"Ok", nil,nil);
         NSLog(@"%@",[error localizedDescription]);
