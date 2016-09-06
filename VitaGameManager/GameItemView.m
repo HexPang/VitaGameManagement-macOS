@@ -9,6 +9,8 @@
 #import "GameItemView.h"
 @implementation GameItemView{
     NSDictionary *game;
+    NSTimer *timer;
+    NSString *targetFile;
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
@@ -70,8 +72,7 @@
 - (IBAction)ChooseSaveData:(id)sender{
      NSDictionary *config = [[Util shareInstance] loadConfig];
     NSMenuItem *item = sender;
-    NSString *sourceName = [[game[@"file"] lastPathComponent] stringByDeletingPathExtension];
-    NSError *error = nil;
+    NSString *sourceName = game[@"info"][@"ID"];
     NSURL *toPath = [NSURL fileURLWithPath:config[@"cma_path"]];
     toPath = [toPath URLByAppendingPathComponent:@"PSAVEDATA"];
     toPath =[[toPath URLByAppendingPathComponent:item.parentItem.title] URLByAppendingPathComponent:item.title];
@@ -79,13 +80,41 @@
     NSURL *sourceURL = [NSURL fileURLWithPath:game[@"file"]];
     NSLog(@"Copying %@ to %@",[sourceURL path],[toPath path]);
     NSFileManager *fm = [NSFileManager defaultManager];
-    [fm copyItemAtURL:[sourceURL filePathURL] toURL:[toPath filePathURL] error:&error];
-    if(error != nil){
-        NSRunAlertPanel(@"Copy Error", [error localizedDescription], @"Ok", nil,nil);
-        NSLog(@"%@",[error localizedDescription]);
-    }else{
-        NSRunAlertPanel(@"Done", @"VPK Copied.Now please follow this steps:\n1.Disconnect USB with your PSVita\n2.Refresh CMA or QCMA database.\n3.Connect To Your PSVita.\n4.You know what to do!", @"Ok", nil,nil);
-    }
+    [self.uploadButton setEnabled:NO];
+     timer =  [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerUpdate:) userInfo:nil repeats:YES];
+    [timer fire];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSError *error = nil;
+        targetFile = [toPath path];
+        [fm copyItemAtURL:[sourceURL filePathURL] toURL:[toPath filePathURL] error:&error];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.uploadButton setEnabled:YES];
+            [timer invalidate];
+            targetFile = nil;
+            [self.uploadButton setTitle:@"Upload"];
+            if(error != nil){
+                NSRunAlertPanel(@"Copy Error", [error localizedDescription], @"Ok", nil,nil);
+                NSLog(@"%@",[error localizedDescription]);
+            }else{
+                NSRunAlertPanel(@"Done", @"VPK Copied.Now please follow this steps:\n1.Disconnect USB with your PSVita\n2.Refresh CMA or QCMA database.\n3.Connect To Your PSVita.\n4.You know what to do!", @"Ok", nil,nil);
+            }
+        });
+    });
+}
+
+- (IBAction)timerUpdate:(id)sender {
+    long total = [self getFileSize:game[@"file"]];
+    long copied = [self getFileSize:targetFile];
+    //NSLog(@"%ld/%ld",copied,total);
+    double pst = (double)copied / (double)total;
+    
+    [self.uploadButton setTitle:[NSString stringWithFormat:@"%.2f%%",pst * 100]];
+}
+
+- (long) getFileSize:(NSString *)path{
+    NSDictionary * fileAttributes = [[NSFileManager defaultManager]attributesOfItemAtPath:path error:NULL];
+    return [fileAttributes[NSFileSize] longValue];
 }
 
 - (IBAction)UploadGame:(id)sender{
