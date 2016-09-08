@@ -64,8 +64,8 @@
     //[NSByteCountFormatter stringFromByteCount:1999 countStyle:NSByteCountFormatterCountStyleFile];
 
     gameSize = [NSByteCountFormatter stringFromByteCount:size countStyle:NSByteCountFormatterCountStyleFile];
-    
-    NSString *infoText = [NSString stringWithFormat:@"GAME ID:%@\r\nSize:%@\r\nRegion:%@",game[@"info"][@"ID"],gameSize,gameRegion];
+    //NSLog(@"%@",NSLocalizedString(@"GAME_INFO_TEXT", nil));
+    NSString *infoText = [NSString stringWithFormat:NSLocalizedString(@"GAME_INFO_TEXT", nil),game[@"info"][@"ID"],gameSize,gameRegion];
     
     [itemView.infoLabel setStringValue:infoText];
 //    [itemView.infoLabel.layer setMasksToBounds:YES];
