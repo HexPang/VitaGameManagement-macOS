@@ -13,6 +13,7 @@
 		C75C97271D7F164C00397E6F /* MyVitaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C75C97261D7F164C00397E6F /* MyVitaViewController.m */; };
 		C75C97291D7F16DE00397E6F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C75C97281D7F16DD00397E6F /* libsqlite3.tbd */; };
 		C7632D5A1D7E870D002A5007 /* LxFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C7632D591D7E870D002A5007 /* LxFTPRequest.m */; };
+		C779EC0A1D817B8E00077F40 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C779EC0C1D817B8E00077F40 /* Localizable.strings */; };
 		C7870CCB1D79BC2F006FB2AE /* VitaPackageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C7870CCA1D79BC2F006FB2AE /* VitaPackageHelper.m */; };
 		C7870CDD1D79F14C006FB2AE /* GameItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7870CDC1D79F14C006FB2AE /* GameItemView.m */; };
 		C7870CE11D7A02A8006FB2AE /* pic0.png in Resources */ = {isa = PBXBuildFile; fileRef = C7870CE01D7A02A8006FB2AE /* pic0.png */; };
@@ -41,6 +42,10 @@
 		C75C97281D7F16DD00397E6F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		C7632D581D7E870D002A5007 /* LxFTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxFTPRequest.h; sourceTree = "<group>"; };
 		C7632D591D7E870D002A5007 /* LxFTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxFTPRequest.m; sourceTree = "<group>"; };
+		C779EC0B1D817B8E00077F40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C779EC101D818B9F00077F40 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C779EC111D818BD200077F40 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
+		C779EC121D818C1500077F40 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C7870CC31D79BBFF006FB2AE /* UnzipKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnzipKit.framework; path = VitaPackageHelper/UnzipKit.framework; sourceTree = "<group>"; };
 		C7870CC91D79BC2F006FB2AE /* VitaPackageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VitaPackageHelper.h; sourceTree = "<group>"; };
 		C7870CCA1D79BC2F006FB2AE /* VitaPackageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VitaPackageHelper.m; sourceTree = "<group>"; };
@@ -156,6 +161,7 @@
 		C7870CDF1D7A029F006FB2AE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C75C972D1D8166D900397E6F /* Icon.png */,
 				C7870CE21D7A02D5006FB2AE /* icon0.png */,
 				C7870CE01D7A02A8006FB2AE /* pic0.png */,
 			);
@@ -219,6 +225,7 @@
 		C7A382271D796B26006449BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C779EC0C1D817B8E00077F40 /* Localizable.strings */,
 				C7A382281D796B26006449BF /* main.m */,
 			);
 			name = "Supporting Files";
@@ -275,8 +282,9 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
+				it,
 			);
 			mainGroup = C7A382181D796B26006449BF;
 			productRefGroup = C7A382221D796B26006449BF /* Products */;
@@ -293,8 +301,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C75C972E1D8166D900397E6F /* Icon.png in Resources */,
 				C7870CE31D7A02D5006FB2AE /* icon0.png in Resources */,
 				C7A3822E1D796B26006449BF /* Assets.xcassets in Resources */,
+				C779EC0A1D817B8E00077F40 /* Localizable.strings in Resources */,
 				C74047D01D7983B200091F00 /* GameItem.xib in Resources */,
 				C7A382311D796B26006449BF /* Main.storyboard in Resources */,
 				C7870CE11D7A02A8006FB2AE /* pic0.png in Resources */,
@@ -374,10 +384,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		C779EC0C1D817B8E00077F40 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C779EC0B1D817B8E00077F40 /* Base */,
+				C779EC101D818B9F00077F40 /* en */,
+				C779EC121D818C1500077F40 /* it */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		C7A3822F1D796B26006449BF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C7A382301D796B26006449BF /* Base */,
+				C779EC111D818BD200077F40 /* it */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

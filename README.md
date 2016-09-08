@@ -10,5 +10,5 @@ PSVita Game Manager For macOS
 3. [DONE] Game Upload Via FTP
 4. [DONE] Patching
 5. [WIP]Package Split
-6. Vita Management(Backup..)
+6. Vita Management(Backup,Patching)
 7. Sharing
