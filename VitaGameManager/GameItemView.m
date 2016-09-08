@@ -108,10 +108,10 @@
             targetFile = nil;
             [self.uploadButton setTitle:@"Upload"];
             if(error != nil){
-                NSRunAlertPanel(@"Copy Error", [error localizedDescription], @"Ok", nil,nil);
+                NSRunAlertPanel(NSLocalizedString(@"COPY_ERROR", nil), [error localizedDescription], NSLocalizedString(@"OK", nil), nil,nil);
                 NSLog(@"%@",[error localizedDescription]);
             }else{
-                NSRunAlertPanel(@"Done", @"VPK Copied.Now please follow this steps:\n1.Disconnect USB with your PSVita\n2.Refresh CMA or QCMA database.\n3.Connect To Your PSVita.\n4.In ux0:/pspemu/PSP/SAVEDATA/GAME.BIN\n5.Rename to *.VPK\n6.You know what to do!", @"Ok", nil,nil);
+                NSRunAlertPanel(NSLocalizedString(@"DONE", nil), NSLocalizedString(@"CMA_COPIED_TIP", nil), @"Ok", nil,nil);
             }
         });
     });
@@ -144,10 +144,10 @@
         NSString *text = @"";
         if(code == 1){
             //Uploading...
-            text = [NSString stringWithFormat:@"Uploading.%@ %.2f%%",message,progress];
+            text = [NSString stringWithFormat:NSLocalizedString(@"UPLOADING_PROGRESS", nil),message,progress];
         }else if(code == 2){
             //Success
-            text = @"Uploaded.";
+            text = NSLocalizedString(@"UPLOADED", nil);
             [self.uploadButton setEnabled:YES];
         }else if (code == 0){
             //Error
@@ -160,9 +160,9 @@
     BOOL succ = [ftpRequest start];
     if(succ){
         [self.uploadButton setEnabled:NO];
-        [self.infoLabel setStringValue:@"Connecting..."];
+        [self.infoLabel setStringValue:NSLocalizedString(@"CONNECTING", nil)];
     }else{
-        [self.infoLabel setStringValue:@"Can't Upload."];
+        [self.infoLabel setStringValue:NSLocalizedString(@"CAN_NOT_UPLOAD", nil)];
     }
 }
 
@@ -185,7 +185,7 @@
                 if(state == 0){
                     text = file;
                 }else{
-                    text = [NSString stringWithFormat:@"Extraction %@ %.2f%%", file,progress * 100];
+                    text = [NSString stringWithFormat:NSLocalizedString(@"EXTRACTING", nil), file,progress * 100];
                 }
                 if(text.length > 0)
                     [self.infoLabel setStringValue:text];
@@ -196,10 +196,10 @@
                 NSString *text = @"";
                 if(code == 1){
                     //Uploading...
-                    text = [NSString stringWithFormat:@"Uploading.%@ %.2f%%",message,progress];
+                    text = [NSString stringWithFormat:NSLocalizedString(@"UPLOADING_PROGRESS", nil),message,progress];
                 }else if(code == 2){
                     //Success
-                    text = @"Uploaded.";
+                    text = NSLocalizedString(@"UPLOADED", nil);
                     [self.uploadButton setEnabled:YES];
                 }else if (code == 0){
                     //Error
@@ -212,9 +212,9 @@
             BOOL succ = [ftpRequest start];
             if(succ){
                 [self.uploadButton setEnabled:NO];
-                [self.infoLabel setStringValue:@"Connecting..."];
+                [self.infoLabel setStringValue:NSLocalizedString(@"CONNECTING", nil)];
             }else{
-                [self.infoLabel setStringValue:@"Can't Upload."];
+                [self.infoLabel setStringValue:NSLocalizedString(@"CAN_NOT_UPLOAD", nil)];
             }
         });
        
@@ -241,20 +241,20 @@
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [btn setEnabled:NO];
                             [btn setNeedsDisplay];
-                            [self.infoLabel setStringValue:@"Preparing..."];
+                            [self.infoLabel setStringValue:NSLocalizedString(@"PREPARING", nil)];
                         });
                         [helper patchPackage:game[@"file"] withPatchFile:[url path] withProgress:^(int state,float progress,NSString *file) {
                             dispatch_async(dispatch_get_main_queue(), ^{
                                 NSString *text = @"";
                                 if(state == 1){
-                                    text = [NSString stringWithFormat:@"Extracting %@ %.2f", file,progress];
+                                    text = [NSString stringWithFormat:NSLocalizedString(@"EXTRACTING_WITH_PERCENT", nil), file,progress];
                                 }else if (state == 2){
-                                    text = [NSString stringWithFormat:@"Patching %@ %.2f", file,progress];
+                                    text = [NSString stringWithFormat:NSLocalizedString(@"PATCHING_WITH_PERCENT", nil), file,progress];
                                 }else if(state == 3){
-                                    text = @"Rebuilding...";
+                                    text = NSLocalizedString(@"REBUILDING", nil);
                                 }else{
                                     text = @"";
-                                    NSRunAlertPanel(@"Error", file, @"Ok", nil,nil);
+                                    NSRunAlertPanel(NSLocalizedString(@"ERROR", nil), file, NSLocalizedString(@"OK", nil), nil,nil);
                                 }
                                 if(text.length > 0)
                                     [self.infoLabel setStringValue:text];

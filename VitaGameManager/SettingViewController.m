@@ -48,7 +48,7 @@
                                 NSTextField *CMA_PATH_VIEW = [self.view viewWithTag:11];
                                 [CMA_PATH_VIEW setStringValue:[url path]];
                             }else{
-                                NSRunAlertPanel(@"Error", @"Not Found [PSAVEDATA] Folder In This Path.", @"Ok", nil,nil);
+                                NSRunAlertPanel(NSLocalizedString(@"ERROR",nil), NSLocalizedString(@"NOT_FOUND_PSAVEDATA", nil), NSLocalizedString(@"OK", nil), nil,nil);
                             }
                         }
                     }

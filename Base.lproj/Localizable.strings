@@ -1,0 +1,31 @@
+"GAME_INFO_TEXT" = "GAME ID:%@\r\nSize:%@\r\nRegion:%@";
+
+"ERROR" = "Error";
+
+"NOT_FOUND_PSAVEDATA" = "Not Found [PSAVEDATA] Folder In This Path.";
+
+"OK" = "Ok";
+
+"COPY_ERROR" = "Copy Error";
+
+"DONE" = "Done";
+
+"CMA_COPIED_TIP" = "VPK Copied.Now please follow this steps:\n1.Disconnect USB with your PSVita\n2.Refresh CMA or QCMA database.\n3.Connect To Your PSVita.\n4.In ux0:/pspemu/PSP/SAVEDATA/GAME.BIN\n5.Rename to *.VPK\n6.You know what to do!";
+
+"UPLOADING_PROGRESS" = "Uploading.%@ %.2f%%";
+
+"UPLOADED" = "Uploaded.";
+
+"CONNECTING" = "Connecting...";
+
+"CAN_NOT_UPLOAD" = "Can not upload.";
+
+"EXTRACTING" = "Extracting..";
+
+"PREPARING" = "Preparing";
+
+"EXTRACTING_WITH_PERCENT" = "Extracting %@ %.2f";
+
+"PATCHING_WITH_PERCENT" = "Patching %@ %.2f";
+
+"REBUILDING" = "Rebuilding...";
