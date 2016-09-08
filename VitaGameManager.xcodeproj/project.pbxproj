@@ -10,6 +10,7 @@
 		9A9BAC6F4330B70AD992998A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFC316B0F465399E3B5CB8D /* libPods.a */; };
 		C74047CF1D7983B200091F00 /* GameItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C74047CD1D7983B200091F00 /* GameItem.m */; };
 		C74047D01D7983B200091F00 /* GameItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74047CE1D7983B200091F00 /* GameItem.xib */; };
+		C75C972E1D8166D900397E6F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C75C972D1D8166D900397E6F /* Icon.png */; };
 		C7632D5A1D7E870D002A5007 /* LxFTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C7632D591D7E870D002A5007 /* LxFTPRequest.m */; };
 		C7870CCB1D79BC2F006FB2AE /* VitaPackageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C7870CCA1D79BC2F006FB2AE /* VitaPackageHelper.m */; };
 		C7870CDD1D79F14C006FB2AE /* GameItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7870CDC1D79F14C006FB2AE /* GameItemView.m */; };
@@ -34,6 +35,8 @@
 		C74047CC1D7983B200091F00 /* GameItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameItem.h; sourceTree = "<group>"; };
 		C74047CD1D7983B200091F00 /* GameItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameItem.m; sourceTree = "<group>"; };
 		C74047CE1D7983B200091F00 /* GameItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameItem.xib; sourceTree = "<group>"; };
+		C75C972D1D8166D900397E6F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = VitaGameManager/Assets.xcassets/AppIcon.appiconset/Icon.png; sourceTree = "<group>"; };
+		C75C972F1D81690700397E6F /* it-IT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "it-IT"; path = "it-IT.lproj/Main.strings"; sourceTree = "<group>"; };
 		C7632D581D7E870D002A5007 /* LxFTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxFTPRequest.h; sourceTree = "<group>"; };
 		C7632D591D7E870D002A5007 /* LxFTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxFTPRequest.m; sourceTree = "<group>"; };
 		C7870CC31D79BBFF006FB2AE /* UnzipKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnzipKit.framework; path = VitaPackageHelper/UnzipKit.framework; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		C7870CDF1D7A029F006FB2AE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C75C972D1D8166D900397E6F /* Icon.png */,
 				C7870CE21D7A02D5006FB2AE /* icon0.png */,
 				C7870CE01D7A02A8006FB2AE /* pic0.png */,
 			);
@@ -284,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C75C972E1D8166D900397E6F /* Icon.png in Resources */,
 				C7870CE31D7A02D5006FB2AE /* icon0.png in Resources */,
 				C7A3822E1D796B26006449BF /* Assets.xcassets in Resources */,
 				C74047D01D7983B200091F00 /* GameItem.xib in Resources */,
@@ -368,6 +373,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C7A382301D796B26006449BF /* Base */,
+				C75C972F1D81690700397E6F /* it-IT */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

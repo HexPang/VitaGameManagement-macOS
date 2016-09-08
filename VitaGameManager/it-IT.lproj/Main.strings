@@ -1,0 +1,117 @@
+
+/* Class = "NSMenuItem"; title = "VitaGameManager"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "VitaGameManager";
+
+/* Class = "NSTextFieldCell"; title = "https://github.com/HexPang"; ObjectID = "2Ay-oM-FOy"; */
+"2Ay-oM-FOy.title" = "https://github.com/HexPang";
+
+/* Class = "NSMenuItem"; title = "Quit VitaGameManager"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit VitaGameManager";
+
+/* Class = "NSMenuItem"; title = "About VitaGameManager"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About VitaGameManager";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6HM-ZZ-wn8"; */
+"6HM-ZZ-wn8.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Game ID"; ObjectID = "6Yx-oC-WLv"; */
+"6Yx-oC-WLv.headerCell.title" = "Game ID";
+
+/* Class = "NSTableColumn"; headerCell.title = "Message"; ObjectID = "6wZ-Gs-ha2"; */
+"6wZ-Gs-ha2.headerCell.title" = "Message";
+
+/* Class = "NSTabViewItem"; label = "Settings"; ObjectID = "7CQ-id-nFP"; */
+"7CQ-id-nFP.label" = "Settings";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "8HB-6N-gF9"; */
+"8HB-6N-gF9.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Set your game library..."; ObjectID = "9yM-vY-rJL"; */
+"9yM-vY-rJL.placeholderString" = "Set your game library...";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "Preferences…";
+
+/* Class = "NSButtonCell"; title = "Select"; ObjectID = "CTu-lW-Eob"; */
+"CTu-lW-Eob.title" = "Select";
+
+/* Class = "NSViewController"; title = "Uploads"; ObjectID = "EU6-Sk-oOH"; */
+"EU6-Sk-oOH.title" = "Uploads";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Port"; ObjectID = "FmH-bN-Lah"; */
+"FmH-bN-Lah.placeholderString" = "Port";
+
+/* Class = "NSButtonCell"; title = "Select"; ObjectID = "IOZ-FO-TC7"; */
+"IOZ-FO-TC7.title" = "Select";
+
+/* Class = "NSWindow"; title = "PSVita Game Manager [v0.1.4]"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "PSVita Game Manager [v0.1.4]";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Show All";
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "Bring All to Front";
+
+/* Class = "NSTabViewItem"; label = "My Games"; ObjectID = "LeV-G9-2Qm"; */
+"LeV-G9-2Qm.label" = "My Games";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "Minimize";
+
+/* Class = "NSMenuItem"; title = "Hide VitaGameManager"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide VitaGameManager";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Set your PSVita IP"; ObjectID = "Pzr-2D-IFa"; */
+"Pzr-2D-IFa.placeholderString" = "Set your PSVita IP";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "Zoom";
+
+/* Class = "NSTextFieldCell"; title = "Vita Game Manager for macOS\n\nThanks for:\n\n  DeveloperLx LxFTPRequest  https://github.com/DeveloperLx/LxFTPRequest\n  ZipArchive  SSZipArchive  https://github.com/ZipArchive/ZipArchive\n  abbeycode  UnzipKit  https://github.com/abbeycode/UnzipKit\n\nLocalization:\n  Italian (@colamiki30)"; ObjectID = "RyM-hY-V6w"; */
+"RyM-hY-V6w.title" = "Vita Game Manager for macOS\n\nThanks for:\n\n  DeveloperLx LxFTPRequest  https://github.com/DeveloperLx/LxFTPRequest\n  ZipArchive  SSZipArchive  https://github.com/ZipArchive/ZipArchive\n  abbeycode  UnzipKit  https://github.com/abbeycode/UnzipKit\n\nLocalization:\n  Italian (@colamiki30)";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "Window";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Hide Others";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "Window";
+
+/* Class = "NSButtonCell"; title = "Apply"; ObjectID = "enQ-GU-qRI"; */
+"enQ-GU-qRI.title" = "Apply";
+
+/* Class = "NSTableColumn"; headerCell.title = "Progress"; ObjectID = "fWt-2U-d8x"; */
+"fWt-2U-d8x.headerCell.title" = "Progress";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Set your CMA Folder."; ObjectID = "fnB-Zm-bkb"; */
+"fnB-Zm-bkb.placeholderString" = "Set your CMA Folder.";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "Services";
+
+/* Class = "NSTableColumn"; headerCell.title = "File"; ObjectID = "o6C-EA-Xdb"; */
+"o6C-EA-Xdb.headerCell.title" = "File";
+
+/* Class = "NSViewController"; title = "About"; ObjectID = "sH1-Tu-rVU"; */
+"sH1-Tu-rVU.title" = "About";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "t1s-zO-PLm"; */
+"t1s-zO-PLm.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "tQM-C9-5Ih"; */
+"tQM-C9-5Ih.title" = "Text Cell";
+
+/* Class = "NSMenu"; title = "VitaGameManager"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "VitaGameManager";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "Help";
