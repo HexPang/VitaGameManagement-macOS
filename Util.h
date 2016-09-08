@@ -10,9 +10,10 @@
 #import "LxFTPRequest.h"
 
 @interface Util : NSObject
-typedef void (^UploadProgress)(int code,float progress,NSString *message);
+typedef void (^UploadProgress)(int code,float progress,NSObject *message);
 +(instancetype) shareInstance ;
 - (NSDictionary *) loadConfig;
 - (NSURL *) getCacheFolder:(NSString *)name;
 - (LxFTPRequest *) UploadWithFTP:(NSString *)localFile withName:(NSString *)name withProgress:(UploadProgress) uProgress;
+- (LxFTPRequest *) ListWithFTP:(NSString *)path withProgress:(UploadProgress) uProgress;
 @end

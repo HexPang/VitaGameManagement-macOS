@@ -672,6 +672,7 @@
                     <tabViewItems>
                         <tabViewItem label="My Games" identifier="" image="NSComputer" id="LeV-G9-2Qm"/>
                         <tabViewItem label="Settings" identifier="" image="NSAdvanced" id="7CQ-id-nFP"/>
+                        <tabViewItem label="My Vita" image="NSMobileMe" id="afp-KL-Sr9"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="OsH-VB-Ka7">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -682,11 +683,25 @@
                     <connections>
                         <segue destination="kwe-sS-65A" kind="relationship" relationship="tabItems" id="Ya6-rJ-ckb"/>
                         <segue destination="3g6-bx-T3H" kind="relationship" relationship="tabItems" id="UZu-zd-aAT"/>
+                        <segue destination="nuc-7i-u5Y" kind="relationship" relationship="tabItems" id="Q7L-Bj-AJ4"/>
                     </connections>
                 </tabViewController>
                 <customObject id="nP8-mz-0RV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="764"/>
+        </scene>
+        <!--My Vita-->
+        <scene sceneID="IRU-da-25L">
+            <objects>
+                <viewController title="My Vita" id="nuc-7i-u5Y" customClass="MyVitaViewController" sceneMemberID="viewController">
+                    <view key="view" id="lFQ-aI-1Ip">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="k1d-MI-zY9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-433" y="764"/>
         </scene>
         <!--Uploads-->
         <scene sceneID="ooa-MM-SAq">
@@ -699,11 +714,11 @@
                             <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWb-8K-3Tq">
                                 <rect key="frame" x="0.0" y="0.0" width="483" height="300"/>
                                 <clipView key="contentView" id="LRX-iz-f33">
-                                    <rect key="frame" x="1" y="0.0" width="481" height="284"/>
+                                    <rect key="frame" x="1" y="0.0" width="481" height="299"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="xOG-CQ-9zD" id="YHr-Qw-ZGs">
-                                            <rect key="frame" x="0.0" y="0.0" width="548" height="261"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="548" height="276"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -771,7 +786,7 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="4VA-Qv-1lM">
-                                    <rect key="frame" x="1" y="284" width="481" height="15"/>
+                                    <rect key="frame" x="1" y="283" width="481" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="yvt-zl-KwA">
@@ -823,7 +838,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="fuG-t7-3mK">
-                                    <rect key="frame" x="1" y="208" width="448" height="15"/>
+                                    <rect key="frame" x="1" y="207" width="448" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="RnL-eR-Ptn">
@@ -948,5 +963,6 @@
     <resources>
         <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSComputer" width="32" height="32"/>
+        <image name="NSMobileMe" width="32" height="32"/>
     </resources>
 </document>

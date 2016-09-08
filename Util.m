@@ -53,6 +53,35 @@ static Util *_instance = nil;
     return [dirPath URLByAppendingPathComponent:name];
 }
 
+
+
+- (LxFTPRequest *) ListWithFTP:(NSString *)path withProgress:(UploadProgress) uProgress{
+    LxFTPRequest *ftpRequest = [LxFTPRequest resourceListRequest];
+    NSDictionary *config = [[Util shareInstance] loadConfig];
+    NSURL *sURL = [NSURL URLWithString:[NSString stringWithFormat:@"ftp://%@:%@/",config[@"vita_ip"],config[@"vita_port"]]];
+    sURL = [sURL URLByAppendingPathComponent:@"ux0"];
+    sURL = [sURL URLByAppendingPathComponent:path];
+    NSLog(@"Listing to %@",sURL);
+    ftpRequest.serverURL = sURL;
+    
+    ftpRequest.username = @"anonymous";
+    ftpRequest.password = @"";
+   
+    ftpRequest.progressAction = ^(NSInteger totalSize, NSInteger finishedSize, CGFloat finishedPercent) {
+        uProgress(1,finishedPercent,@"");
+    };
+    
+    ftpRequest.successAction = ^(Class resultClass, id result) {
+        uProgress(2,1.0f,result);
+        
+    };
+    ftpRequest.failAction = ^(CFStreamErrorDomain domain, NSInteger error, NSString *errorMessage) {
+        uProgress(0,0,errorMessage);
+        NSLog(@"domain = %ld, error = %ld", domain, error);
+    };
+    return ftpRequest;
+}
+
 - (LxFTPRequest *) UploadWithFTP:(NSString *)localFile withName:(NSString *)name withProgress:(UploadProgress) uProgress{
     LxFTPRequest *ftpRequest = [LxFTPRequest uploadRequest];
     NSDictionary *config = [[Util shareInstance] loadConfig];
