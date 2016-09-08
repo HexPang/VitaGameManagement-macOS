@@ -139,8 +139,7 @@
 
 - (IBAction)UploadFullPackage:(id)sender{
     //[self sendNotification:@"upload"];
-    
-    LxFTPRequest *ftpRequest = [[Util shareInstance] UploadWithFTP:game[@"file"] withName:game[@"info"][@"ID"] withProgress:^(int code, float progress, NSString *message) {
+    LxFTPRequest *ftpRequest = [[Util shareInstance] UploadWithFTP:game[@"file"] withName:game[@"info"][@"ID"] withProgress:^(int code, float progress, NSObject *message) {
         NSString *text = @"";
         if(code == 1){
             //Uploading...
@@ -151,7 +150,7 @@
             [self.uploadButton setEnabled:YES];
         }else if (code == 0){
             //Error
-            text = message;
+            text = [NSString stringWithFormat:@"%@",message];
             [self.uploadButton setEnabled:YES];
         }
         [self.infoLabel setStringValue:text];
@@ -192,7 +191,7 @@
             });
         }];
         dispatch_async(dispatch_get_main_queue(), ^{
-            LxFTPRequest *ftpRequest = [[Util shareInstance] UploadWithFTP:file withName:[NSString stringWithFormat:@"%@-MINI",game[@"info"][@"ID"]] withProgress:^(int code, float progress, NSString *message) {
+            LxFTPRequest *ftpRequest = [[Util shareInstance] UploadWithFTP:file withName:[NSString stringWithFormat:@"%@-MINI",game[@"info"][@"ID"]] withProgress:^(int code, float progress, NSObject *message) {
                 NSString *text = @"";
                 if(code == 1){
                     //Uploading...
@@ -203,7 +202,7 @@
                     [self.uploadButton setEnabled:YES];
                 }else if (code == 0){
                     //Error
-                    text = message;
+                    text = [NSString stringWithFormat:@"%@",message];
                     [self.uploadButton setEnabled:YES];
                 }
                 [self.infoLabel setStringValue:text];

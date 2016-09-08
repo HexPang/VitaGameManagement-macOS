@@ -697,6 +697,47 @@
                     <view key="view" id="lFQ-aI-1Ip">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Xz-j1-orl">
+                                <rect key="frame" x="20" y="256" width="99" height="26"/>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="w6x-J3-wfW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <objectValues>
+                                        <string>My Apps</string>
+                                    </objectValues>
+                                </comboBoxCell>
+                            </comboBox>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpF-rp-J4f">
+                                <rect key="frame" x="20" y="20" width="410" height="232"/>
+                                <clipView key="contentView" id="eUS-v6-53m">
+                                    <rect key="frame" x="1" y="1" width="408" height="230"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="H1S-IP-zyE">
+                                            <rect key="frame" x="0.0" y="0.0" width="408" height="230"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Fwy-wz-xyl">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="wlV-SV-KKy">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="GpF-rp-J4f" firstAttribute="leading" secondItem="lFQ-aI-1Ip" secondAttribute="leading" constant="20" id="7CM-C8-eCj"/>
+                            <constraint firstItem="GpF-rp-J4f" firstAttribute="top" secondItem="lFQ-aI-1Ip" secondAttribute="top" constant="48" id="IFV-ED-Vgz"/>
+                            <constraint firstAttribute="bottom" secondItem="GpF-rp-J4f" secondAttribute="bottom" constant="20" id="xdm-ot-nMs"/>
+                            <constraint firstAttribute="trailing" secondItem="GpF-rp-J4f" secondAttribute="trailing" constant="20" id="xfi-8o-vJy"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="k1d-MI-zY9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -958,6 +999,18 @@
                 <customObject id="BBR-0j-SBI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="604" y="1230"/>
+        </scene>
+        <!--Collection View Item-->
+        <scene sceneID="a3u-G7-aQ0">
+            <objects>
+                <collectionViewItem id="DEf-ZA-Mmw" sceneMemberID="viewController">
+                    <view key="view" id="rZJ-Aw-xvG">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </collectionViewItem>
+                <customObject id="E6i-b2-DLG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
