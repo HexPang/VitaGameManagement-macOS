@@ -699,8 +699,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Xz-j1-orl">
-                                <rect key="frame" x="20" y="256" width="99" height="26"/>
-                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="w6x-J3-wfW">
+                                <rect key="frame" x="20" y="256" width="115" height="26"/>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Select Folder" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="w6x-J3-wfW">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -709,6 +709,13 @@
                                     </objectValues>
                                 </comboBoxCell>
                             </comboBox>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S0b-IX-YPy">
+                                <rect key="frame" x="134" y="252" width="167" height="32"/>
+                                <buttonCell key="cell" type="push" title="Connect To VitaShell" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vFj-bx-W0P">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpF-rp-J4f">
                                 <rect key="frame" x="20" y="20" width="410" height="232"/>
                                 <clipView key="contentView" id="eUS-v6-53m">
@@ -743,6 +750,37 @@
                 <customObject id="k1d-MI-zY9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-433" y="764"/>
+        </scene>
+        <!--Collection View Item-->
+        <scene sceneID="ot8-40-7lU">
+            <objects>
+                <collectionViewItem id="LkU-7J-2fg" sceneMemberID="viewController">
+                    <view key="view" misplaced="YES" id="4Oo-XI-hkA">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GxU-hd-ZXk">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon0" id="sxJ-EB-Vyl"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RMm-DW-5nF">
+                                <rect key="frame" x="-2" y="0.0" width="104" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Hello" id="WGG-by-HIq">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.86298491379310338" colorSpace="calibratedRGB"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="GxU-hd-ZXk" firstAttribute="height" secondItem="4Oo-XI-hkA" secondAttribute="height" id="eTF-IJ-6p8"/>
+                            <constraint firstItem="GxU-hd-ZXk" firstAttribute="width" secondItem="4Oo-XI-hkA" secondAttribute="width" id="wt6-BL-Eko"/>
+                        </constraints>
+                    </view>
+                </collectionViewItem>
+                <customObject id="ChE-Pr-f5i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-608" y="522"/>
         </scene>
         <!--Uploads-->
         <scene sceneID="ooa-MM-SAq">
@@ -1017,5 +1055,6 @@
         <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSComputer" width="32" height="32"/>
         <image name="NSMobileMe" width="32" height="32"/>
+        <image name="icon0" width="128" height="128"/>
     </resources>
 </document>
