@@ -8,7 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Util.h"
+#import "MyVitaViewItem.h"
 
-@interface MyVitaViewController : NSViewController
-
+@interface MyVitaViewController : NSViewController<NSCollectionViewDelegate,NSCollectionViewDataSource>
+@property (weak,nonatomic) IBOutlet NSCollectionView *collectionView;
 @end

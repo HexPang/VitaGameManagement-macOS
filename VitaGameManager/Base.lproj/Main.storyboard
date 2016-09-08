@@ -99,7 +99,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="PSVita Game Manager [v0.1.4]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="PSVita Game Manager [v0.1.5]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -222,6 +222,9 @@ Localization:
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="ConnectToMyVita_Clicked:" target="nuc-7i-u5Y" id="zdn-Ns-uUe"/>
+                                </connections>
                             </button>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpF-rp-J4f">
                                 <rect key="frame" x="20" y="20" width="410" height="232"/>
@@ -229,10 +232,17 @@ Localization:
                                     <rect key="frame" x="1" y="1" width="408" height="230"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <collectionView id="H1S-IP-zyE">
+                                        <collectionView selectable="YES" allowsEmptySelection="NO" id="H1S-IP-zyE">
                                             <rect key="frame" x="0.0" y="0.0" width="408" height="230"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="NWE-rh-mGo">
+                                                <size key="itemSize" width="80" height="80"/>
+                                            </collectionViewFlowLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="nuc-7i-u5Y" id="nLj-69-LaR"/>
+                                                <outlet property="delegate" destination="nuc-7i-u5Y" id="SGE-m7-vsV"/>
+                                            </connections>
                                         </collectionView>
                                     </subviews>
                                 </clipView>
@@ -253,41 +263,13 @@ Localization:
                             <constraint firstAttribute="trailing" secondItem="GpF-rp-J4f" secondAttribute="trailing" constant="20" id="xfi-8o-vJy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="H1S-IP-zyE" id="INp-Fw-7M6"/>
+                    </connections>
                 </viewController>
                 <customObject id="k1d-MI-zY9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-433" y="764"/>
-        </scene>
-        <!--Collection View Item-->
-        <scene sceneID="ot8-40-7lU">
-            <objects>
-                <collectionViewItem id="LkU-7J-2fg" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="4Oo-XI-hkA">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GxU-hd-ZXk">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon0" id="sxJ-EB-Vyl"/>
-                            </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RMm-DW-5nF">
-                                <rect key="frame" x="-2" y="0.0" width="104" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Hello" id="WGG-by-HIq">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.86298491379310338" colorSpace="calibratedRGB"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="GxU-hd-ZXk" firstAttribute="height" secondItem="4Oo-XI-hkA" secondAttribute="height" id="eTF-IJ-6p8"/>
-                            <constraint firstItem="GxU-hd-ZXk" firstAttribute="width" secondItem="4Oo-XI-hkA" secondAttribute="width" id="wt6-BL-Eko"/>
-                        </constraints>
-                    </view>
-                </collectionViewItem>
-                <customObject id="ChE-Pr-f5i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-608" y="522"/>
         </scene>
         <!--Uploads-->
         <scene sceneID="ooa-MM-SAq">
@@ -563,6 +545,5 @@ Localization:
         <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSComputer" width="32" height="32"/>
         <image name="NSMobileMe" width="32" height="32"/>
-        <image name="icon0" width="128" height="128"/>
     </resources>
 </document>
