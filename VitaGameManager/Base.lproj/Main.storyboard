@@ -99,7 +99,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="PSVita Game Manager [v0.1.4]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="PSVita Game Manager [v0.1.5]" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -179,6 +179,7 @@ Localization:
                     <tabViewItems>
                         <tabViewItem label="My Games" identifier="" image="NSComputer" id="LeV-G9-2Qm"/>
                         <tabViewItem label="Settings" identifier="" image="NSAdvanced" id="7CQ-id-nFP"/>
+                        <tabViewItem label="My Vita" image="NSMobileMe" id="afp-KL-Sr9"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="OsH-VB-Ka7">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -189,11 +190,86 @@ Localization:
                     <connections>
                         <segue destination="kwe-sS-65A" kind="relationship" relationship="tabItems" id="Ya6-rJ-ckb"/>
                         <segue destination="3g6-bx-T3H" kind="relationship" relationship="tabItems" id="UZu-zd-aAT"/>
+                        <segue destination="nuc-7i-u5Y" kind="relationship" relationship="tabItems" id="Q7L-Bj-AJ4"/>
                     </connections>
                 </tabViewController>
                 <customObject id="nP8-mz-0RV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="764"/>
+        </scene>
+        <!--My Vita-->
+        <scene sceneID="IRU-da-25L">
+            <objects>
+                <viewController title="My Vita" id="nuc-7i-u5Y" customClass="MyVitaViewController" sceneMemberID="viewController">
+                    <view key="view" id="lFQ-aI-1Ip">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Xz-j1-orl">
+                                <rect key="frame" x="20" y="256" width="115" height="26"/>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Select Folder" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="w6x-J3-wfW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <objectValues>
+                                        <string>My Apps</string>
+                                    </objectValues>
+                                </comboBoxCell>
+                            </comboBox>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S0b-IX-YPy">
+                                <rect key="frame" x="134" y="252" width="167" height="32"/>
+                                <buttonCell key="cell" type="push" title="Connect To VitaShell" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vFj-bx-W0P">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="ConnectToMyVita_Clicked:" target="nuc-7i-u5Y" id="zdn-Ns-uUe"/>
+                                </connections>
+                            </button>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpF-rp-J4f">
+                                <rect key="frame" x="20" y="20" width="410" height="232"/>
+                                <clipView key="contentView" id="eUS-v6-53m">
+                                    <rect key="frame" x="1" y="1" width="408" height="230"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView selectable="YES" allowsEmptySelection="NO" id="H1S-IP-zyE">
+                                            <rect key="frame" x="0.0" y="0.0" width="408" height="230"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="NWE-rh-mGo">
+                                                <size key="itemSize" width="80" height="80"/>
+                                            </collectionViewFlowLayout>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="dataSource" destination="nuc-7i-u5Y" id="nLj-69-LaR"/>
+                                                <outlet property="delegate" destination="nuc-7i-u5Y" id="SGE-m7-vsV"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Fwy-wz-xyl">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="wlV-SV-KKy">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="GpF-rp-J4f" firstAttribute="leading" secondItem="lFQ-aI-1Ip" secondAttribute="leading" constant="20" id="7CM-C8-eCj"/>
+                            <constraint firstItem="GpF-rp-J4f" firstAttribute="top" secondItem="lFQ-aI-1Ip" secondAttribute="top" constant="48" id="IFV-ED-Vgz"/>
+                            <constraint firstAttribute="bottom" secondItem="GpF-rp-J4f" secondAttribute="bottom" constant="20" id="xdm-ot-nMs"/>
+                            <constraint firstAttribute="trailing" secondItem="GpF-rp-J4f" secondAttribute="trailing" constant="20" id="xfi-8o-vJy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="H1S-IP-zyE" id="INp-Fw-7M6"/>
+                    </connections>
+                </viewController>
+                <customObject id="k1d-MI-zY9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-433" y="764"/>
         </scene>
         <!--Uploads-->
         <scene sceneID="ooa-MM-SAq">
@@ -206,11 +282,11 @@ Localization:
                             <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWb-8K-3Tq">
                                 <rect key="frame" x="0.0" y="0.0" width="483" height="300"/>
                                 <clipView key="contentView" id="LRX-iz-f33">
-                                    <rect key="frame" x="1" y="0.0" width="481" height="284"/>
+                                    <rect key="frame" x="1" y="0.0" width="481" height="299"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="xOG-CQ-9zD" id="YHr-Qw-ZGs">
-                                            <rect key="frame" x="0.0" y="0.0" width="548" height="261"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="548" height="276"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -278,7 +354,7 @@ Localization:
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="4VA-Qv-1lM">
-                                    <rect key="frame" x="1" y="284" width="481" height="15"/>
+                                    <rect key="frame" x="1" y="283" width="481" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="yvt-zl-KwA">
@@ -330,7 +406,7 @@ Localization:
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="fuG-t7-3mK">
-                                    <rect key="frame" x="1" y="208" width="448" height="15"/>
+                                    <rect key="frame" x="1" y="207" width="448" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="RnL-eR-Ptn">
@@ -451,10 +527,23 @@ Localization:
             </objects>
             <point key="canvasLocation" x="604" y="1230"/>
         </scene>
+        <!--Collection View Item-->
+        <scene sceneID="a3u-G7-aQ0">
+            <objects>
+                <collectionViewItem id="DEf-ZA-Mmw" sceneMemberID="viewController">
+                    <view key="view" id="rZJ-Aw-xvG">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </collectionViewItem>
+                <customObject id="E6i-b2-DLG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="Icon" width="512" height="512"/>
         <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSComputer" width="32" height="32"/>
+        <image name="NSMobileMe" width="32" height="32"/>
     </resources>
 </document>

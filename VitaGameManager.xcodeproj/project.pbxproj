@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		9A9BAC6F4330B70AD992998A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFFC316B0F465399E3B5CB8D /* libPods.a */; };
+		C726F36C1D81A31000A2A4D7 /* MyVitaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C726F36A1D81A31000A2A4D7 /* MyVitaViewController.m */; };
+		C726F3731D81D55500A2A4D7 /* MyVitaViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C726F3711D81D55500A2A4D7 /* MyVitaViewItem.m */; };
+		C726F3741D81D55500A2A4D7 /* MyVitaViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = C726F3721D81D55500A2A4D7 /* MyVitaViewItem.xib */; };
+		C726F3851D81DB1500A2A4D7 /* File.png in Resources */ = {isa = PBXBuildFile; fileRef = C726F3821D81DB1500A2A4D7 /* File.png */; };
+		C726F3861D81DB1500A2A4D7 /* Folder.png in Resources */ = {isa = PBXBuildFile; fileRef = C726F3831D81DB1500A2A4D7 /* Folder.png */; };
+		C726F3871D81DB1500A2A4D7 /* VPK.png in Resources */ = {isa = PBXBuildFile; fileRef = C726F3841D81DB1500A2A4D7 /* VPK.png */; };
 		C74047CF1D7983B200091F00 /* GameItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C74047CD1D7983B200091F00 /* GameItem.m */; };
 		C74047D01D7983B200091F00 /* GameItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74047CE1D7983B200091F00 /* GameItem.xib */; };
 		C75C972E1D8166D900397E6F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C75C972D1D8166D900397E6F /* Icon.png */; };
@@ -28,11 +34,20 @@
 		C7A3822C1D796B26006449BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A3822B1D796B26006449BF /* ViewController.m */; };
 		C7A3822E1D796B26006449BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A3822D1D796B26006449BF /* Assets.xcassets */; };
 		C7A382311D796B26006449BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A3822F1D796B26006449BF /* Main.storyboard */; };
+		C7F938671D81DD4D00945842 /* MyVitaView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F938661D81DD4D00945842 /* MyVitaView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		11FD6286A3D5A51DFC7ED1DD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7EBDEB15DE6342B76879ABFA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C726F36A1D81A31000A2A4D7 /* MyVitaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyVitaViewController.m; sourceTree = "<group>"; };
+		C726F36B1D81A31000A2A4D7 /* MyVitaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyVitaViewController.h; sourceTree = "<group>"; };
+		C726F3701D81D55500A2A4D7 /* MyVitaViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyVitaViewItem.h; sourceTree = "<group>"; };
+		C726F3711D81D55500A2A4D7 /* MyVitaViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyVitaViewItem.m; sourceTree = "<group>"; };
+		C726F3721D81D55500A2A4D7 /* MyVitaViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyVitaViewItem.xib; sourceTree = "<group>"; };
+		C726F3821D81DB1500A2A4D7 /* File.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = File.png; sourceTree = "<group>"; };
+		C726F3831D81DB1500A2A4D7 /* Folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Folder.png; sourceTree = "<group>"; };
+		C726F3841D81DB1500A2A4D7 /* VPK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = VPK.png; sourceTree = "<group>"; };
 		C74047CC1D7983B200091F00 /* GameItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameItem.h; sourceTree = "<group>"; };
 		C74047CD1D7983B200091F00 /* GameItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameItem.m; sourceTree = "<group>"; };
 		C74047CE1D7983B200091F00 /* GameItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameItem.xib; sourceTree = "<group>"; };
@@ -69,6 +84,8 @@
 		C7A3822D1D796B26006449BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7A382301D796B26006449BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7A382321D796B26006449BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7F938651D81DD4D00945842 /* MyVitaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyVitaView.h; sourceTree = "<group>"; };
+		C7F938661D81DD4D00945842 /* MyVitaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyVitaView.m; sourceTree = "<group>"; };
 		CFFC316B0F465399E3B5CB8D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -97,6 +114,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C726F3751D81D73F00A2A4D7 /* FileTypes */ = {
+			isa = PBXGroup;
+			children = (
+				C726F3821D81DB1500A2A4D7 /* File.png */,
+				C726F3831D81DB1500A2A4D7 /* Folder.png */,
+				C726F3841D81DB1500A2A4D7 /* VPK.png */,
+			);
+			name = FileTypes;
+			sourceTree = "<group>";
+		};
 		C74047C61D7975A700091F00 /* ViewItems */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +132,11 @@
 				C74047CE1D7983B200091F00 /* GameItem.xib */,
 				C7870CDB1D79F14C006FB2AE /* GameItemView.h */,
 				C7870CDC1D79F14C006FB2AE /* GameItemView.m */,
+				C726F3701D81D55500A2A4D7 /* MyVitaViewItem.h */,
+				C726F3711D81D55500A2A4D7 /* MyVitaViewItem.m */,
+				C726F3721D81D55500A2A4D7 /* MyVitaViewItem.xib */,
+				C7F938651D81DD4D00945842 /* MyVitaView.h */,
+				C7F938661D81DD4D00945842 /* MyVitaView.m */,
 			);
 			name = ViewItems;
 			sourceTree = "<group>";
@@ -156,6 +188,7 @@
 		C7870CDF1D7A029F006FB2AE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C726F3751D81D73F00A2A4D7 /* FileTypes */,
 				C75C972D1D8166D900397E6F /* Icon.png */,
 				C7870CE21D7A02D5006FB2AE /* icon0.png */,
 				C7870CE01D7A02A8006FB2AE /* pic0.png */,
@@ -166,6 +199,8 @@
 		C7870CED1D7A0BE4006FB2AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C726F36A1D81A31000A2A4D7 /* MyVitaViewController.m */,
+				C726F36B1D81A31000A2A4D7 /* MyVitaViewController.h */,
 				C7A3822A1D796B26006449BF /* ViewController.h */,
 				C7A3822B1D796B26006449BF /* ViewController.m */,
 				C7870CE71D7A0956006FB2AE /* SettingViewController.h */,
@@ -294,13 +329,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C726F3851D81DB1500A2A4D7 /* File.png in Resources */,
 				C75C972E1D8166D900397E6F /* Icon.png in Resources */,
 				C7870CE31D7A02D5006FB2AE /* icon0.png in Resources */,
 				C7A3822E1D796B26006449BF /* Assets.xcassets in Resources */,
 				C779EC0A1D817B8E00077F40 /* Localizable.strings in Resources */,
+				C726F3871D81DB1500A2A4D7 /* VPK.png in Resources */,
 				C74047D01D7983B200091F00 /* GameItem.xib in Resources */,
 				C7A382311D796B26006449BF /* Main.storyboard in Resources */,
+				C726F3861D81DB1500A2A4D7 /* Folder.png in Resources */,
 				C7870CE11D7A02A8006FB2AE /* pic0.png in Resources */,
+				C726F3741D81D55500A2A4D7 /* MyVitaViewItem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +399,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7A3822C1D796B26006449BF /* ViewController.m in Sources */,
+				C726F3731D81D55500A2A4D7 /* MyVitaViewItem.m in Sources */,
+				C7F938671D81DD4D00945842 /* MyVitaView.m in Sources */,
 				C7632D5A1D7E870D002A5007 /* LxFTPRequest.m in Sources */,
+				C726F36C1D81A31000A2A4D7 /* MyVitaViewController.m in Sources */,
 				C7870CDD1D79F14C006FB2AE /* GameItemView.m in Sources */,
 				C7870CCB1D79BC2F006FB2AE /* VitaPackageHelper.m in Sources */,
 				C7870CF41D7AA2E3006FB2AE /* UploadViewController.m in Sources */,
