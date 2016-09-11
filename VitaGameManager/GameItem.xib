@@ -99,10 +99,16 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="r5j-bi-M7T"/>
-                <menuItem title="SplitTransfer" id="b7Z-Pc-4Od">
+                <menuItem title="Mini VPK" id="b7Z-Pc-4Od">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="UploadSplitPackage:" target="Hz6-mo-xeY" id="7Pt-IP-ryt"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Data Files" id="pGs-BC-9eS">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="UploadDataFiles:" target="Hz6-mo-xeY" id="oLZ-pM-gXY"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="BGX-Hz-J66"/>

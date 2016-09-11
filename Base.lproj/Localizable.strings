@@ -8,6 +8,8 @@
 
 "COPY_ERROR" = "Copy Error";
 
+"UPLOADING" = "Uploading...";
+
 "DONE" = "Done";
 
 "CMA_COPIED_TIP" = "VPK Copied.Now please follow this steps:\n1.Disconnect USB with your PSVita\n2.Refresh CMA or QCMA database.\n3.Connect To Your PSVita.\n4.In ux0:/pspemu/PSP/SAVEDATA/GAME.BIN\n5.Rename to *.VPK\n6.You know what to do!";
