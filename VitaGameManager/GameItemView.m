@@ -179,25 +179,31 @@
     NSString *sourceName = [game[@"file"] lastPathComponent];
     sourceName = [sourceName stringByDeletingPathExtension];
     NSString *dataPath = [[splitURL URLByAppendingPathComponent:sourceName] path];
-    NSURL *appURL = [[NSURL URLWithString:@"app"] URLByAppendingPathComponent:game[@"info"][@"ID"]];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.uploadButton setEnabled:NO];
-            [[Util shareInstance] CreateFolderBeforeUpload:dataPath toPath:[appURL path] withProgress:^(int code, float progress, NSObject *message) {
-                NSLog(@"%d %@",code,message);
-                NSString *text = nil;
-                if(code == 0){
-                    NSString *fileName = (NSString *)message;
-                    text = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"UPLOADING", nil),fileName];
-                }else if(code == -1 || code == -2){
-                    text = NSLocalizedString(@"UPLOADED", nil);
-                    [self.uploadButton setEnabled:YES];
-                }
-                if(text != nil)
-                    [self.infoLabel setStringValue:text];
-            }];
+    BOOL isDir = NO;
+    if([[NSFileManager defaultManager] fileExistsAtPath:dataPath isDirectory:&isDir] && isDir){
+        NSURL *appURL = [[NSURL URLWithString:@"app"] URLByAppendingPathComponent:game[@"info"][@"ID"]];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.uploadButton setEnabled:NO];
+                [[Util shareInstance] CreateFolderBeforeUpload:dataPath toPath:[appURL path] withProgress:^(int code, float progress, NSObject *message) {
+                    NSLog(@"%d %@",code,message);
+                    NSString *text = nil;
+                    if(code == 0){
+                        NSString *fileName = (NSString *)message;
+                        text = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"UPLOADING", nil),fileName];
+                    }else if(code == -1 || code == -2){
+                        text = NSLocalizedString(@"UPLOADED", nil);
+                        [self.uploadButton setEnabled:YES];
+                    }else if(code == -3){
+                        [self.uploadButton setEnabled:YES];
+                    }
+                    if(text != nil)
+                        [self.infoLabel setStringValue:text];
+                }];
+            });
         });
-    });
+    }
+    
 
 }
 

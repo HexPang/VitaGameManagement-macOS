@@ -179,7 +179,7 @@ Localization:
                     <tabViewItems>
                         <tabViewItem label="My Games" identifier="" image="NSComputer" id="LeV-G9-2Qm"/>
                         <tabViewItem label="Settings" identifier="" image="NSAdvanced" id="7CQ-id-nFP"/>
-                        <tabViewItem label="My Vita" image="NSMobileMe" id="afp-KL-Sr9"/>
+                        <tabViewItem label="My Vita(WIP)" image="NSMobileMe" id="afp-KL-Sr9"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="OsH-VB-Ka7">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
