@@ -143,7 +143,8 @@
         NSString *text = @"";
         if(code == 1){
             //Uploading...
-            text = [NSString stringWithFormat:NSLocalizedString(@"UPLOADING_PROGRESS", nil),message,progress];
+//            text = [NSString stringWithFormat:NSLocalizedString(@"UPLOADING_PROGRESS", nil),message,progress];
+            text = NSLocalizedString(@"UPLOADING", nil);
         }else if(code == 2){
             //Success
             text = NSLocalizedString(@"UPLOADED", nil);
@@ -173,6 +174,39 @@
     }
 }
 
+- (IBAction)UploadDataFiles:(id)sender{
+    NSURL *splitURL = [[Util shareInstance] getCacheFolder:@"SplitTransfer"];
+    NSString *sourceName = [game[@"file"] lastPathComponent];
+    sourceName = [sourceName stringByDeletingPathExtension];
+    NSString *dataPath = [[splitURL URLByAppendingPathComponent:sourceName] path];
+    BOOL isDir = NO;
+    if([[NSFileManager defaultManager] fileExistsAtPath:dataPath isDirectory:&isDir] && isDir){
+        NSURL *appURL = [[NSURL URLWithString:@"app"] URLByAppendingPathComponent:game[@"info"][@"ID"]];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.uploadButton setEnabled:NO];
+                [[Util shareInstance] CreateFolderBeforeUpload:dataPath toPath:[appURL path] withProgress:^(int code, float progress, NSObject *message) {
+                    NSLog(@"%d %@",code,message);
+                    NSString *text = nil;
+                    if(code == 0){
+                        NSString *fileName = (NSString *)message;
+                        text = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"UPLOADING", nil),fileName];
+                    }else if(code == -1 || code == -2){
+                        text = NSLocalizedString(@"UPLOADED", nil);
+                        [self.uploadButton setEnabled:YES];
+                    }else if(code == -3){
+                        [self.uploadButton setEnabled:YES];
+                    }
+                    if(text != nil)
+                        [self.infoLabel setStringValue:text];
+                }];
+            });
+        });
+    }
+    
+
+}
+
 - (IBAction)UploadSplitPackage:(id)sender{
     
     VitaPackageHelper *helper = [[VitaPackageHelper alloc] init];
@@ -194,8 +228,9 @@
             LxFTPRequest *ftpRequest = [[Util shareInstance] UploadWithFTP:file withName:[NSString stringWithFormat:@"%@-MINI",game[@"info"][@"ID"]] withProgress:^(int code, float progress, NSObject *message) {
                 NSString *text = @"";
                 if(code == 1){
+                    text = NSLocalizedString(@"UPLOADING", nil);
                     //Uploading...
-                    text = [NSString stringWithFormat:NSLocalizedString(@"UPLOADING_PROGRESS", nil),message,progress];
+                    //text = [NSString stringWithFormat:NSLocalizedString(@"UPLOADING_PROGRESS", nil),message,progress];
                 }else if(code == 2){
                     //Success
                     text = NSLocalizedString(@"UPLOADED", nil);

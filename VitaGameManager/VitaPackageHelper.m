@@ -236,9 +236,9 @@
     if(archive){
         NSURL *splitURL = [[Util shareInstance] getCacheFolder:@"SplitTransfer"];
         NSString *miniPath = [[splitURL URLByAppendingPathComponent:@"mini"] path];
-        NSString *dataPath = [[splitURL URLByAppendingPathComponent:@"data"] path];
         NSString *sourceName = [sourcePackage lastPathComponent];
         sourceName = [sourceName stringByDeletingPathExtension];
+        NSString *dataPath = [[splitURL URLByAppendingPathComponent:sourceName] path];
         splitName = [NSString stringWithFormat:@"%@/%@.MINI.VPK",[splitURL path],sourceName];
         [[NSFileManager defaultManager] removeItemAtPath:splitName error:nil];
         [[NSFileManager defaultManager] removeItemAtPath:miniPath error:nil];

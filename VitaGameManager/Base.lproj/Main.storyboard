@@ -179,7 +179,7 @@ Localization:
                     <tabViewItems>
                         <tabViewItem label="My Games" identifier="" image="NSComputer" id="LeV-G9-2Qm"/>
                         <tabViewItem label="Settings" identifier="" image="NSAdvanced" id="7CQ-id-nFP"/>
-                        <tabViewItem label="My Vita" image="NSMobileMe" id="afp-KL-Sr9"/>
+                        <tabViewItem label="My Vita(WIP)" image="NSMobileMe" id="afp-KL-Sr9"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="OsH-VB-Ka7">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -197,10 +197,10 @@ Localization:
             </objects>
             <point key="canvasLocation" x="75" y="764"/>
         </scene>
-        <!--My Vita-->
+        <!--My Vita(WIP)-->
         <scene sceneID="IRU-da-25L">
             <objects>
-                <viewController title="My Vita" id="nuc-7i-u5Y" customClass="MyVitaViewController" sceneMemberID="viewController">
+                <viewController title="My Vita(WIP)" id="nuc-7i-u5Y" customClass="MyVitaViewController" sceneMemberID="viewController">
                     <view key="view" id="lFQ-aI-1Ip">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -282,11 +282,11 @@ Localization:
                             <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWb-8K-3Tq">
                                 <rect key="frame" x="0.0" y="0.0" width="483" height="300"/>
                                 <clipView key="contentView" id="LRX-iz-f33">
-                                    <rect key="frame" x="1" y="0.0" width="481" height="299"/>
+                                    <rect key="frame" x="1" y="0.0" width="481" height="284"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="xOG-CQ-9zD" id="YHr-Qw-ZGs">
-                                            <rect key="frame" x="0.0" y="0.0" width="548" height="276"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="548" height="261"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -406,7 +406,7 @@ Localization:
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="fuG-t7-3mK">
-                                    <rect key="frame" x="1" y="207" width="448" height="16"/>
+                                    <rect key="frame" x="1" y="208" width="448" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="RnL-eR-Ptn">
