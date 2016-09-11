@@ -4,7 +4,7 @@ PSVita Game Manager For macOS
 > About SFO Structure [Click Here](http://www.psdevwiki.com/ps3/PARAM.SFO)
 
 ## Thanks for
-Italian language support [@colamiki30](http://twitter.com/colamiki30)
+Italian translation [@colamiki30](http://twitter.com/colamiki30)
 
 
 1. [DONE] SFO Parser
