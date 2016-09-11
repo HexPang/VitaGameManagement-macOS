@@ -197,10 +197,10 @@ Localization:
             </objects>
             <point key="canvasLocation" x="75" y="764"/>
         </scene>
-        <!--My Vita-->
+        <!--My Vita(WIP)-->
         <scene sceneID="IRU-da-25L">
             <objects>
-                <viewController title="My Vita" id="nuc-7i-u5Y" customClass="MyVitaViewController" sceneMemberID="viewController">
+                <viewController title="My Vita(WIP)" id="nuc-7i-u5Y" customClass="MyVitaViewController" sceneMemberID="viewController">
                     <view key="view" id="lFQ-aI-1Ip">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>

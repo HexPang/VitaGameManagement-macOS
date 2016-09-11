@@ -5,9 +5,9 @@
 
 #import "LxFTPRequest.h"
 
-static NSInteger const RESOURCE_LIST_BUFFER_SIZE = 1024;
-static NSInteger const DOWNLOAD_BUFFER_SIZE = 1024;
-static NSInteger const UPLOAD_BUFFER_SIZE = 1024;
+static NSInteger const RESOURCE_LIST_BUFFER_SIZE = 4096;
+static NSInteger const DOWNLOAD_BUFFER_SIZE = 4096;
+static NSInteger const UPLOAD_BUFFER_SIZE = 4096;
 
 @implementation NSString (ftp)
 
