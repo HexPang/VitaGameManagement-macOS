@@ -53,8 +53,6 @@ static Util *_instance = nil;
     return [dirPath URLByAppendingPathComponent:name];
 }
 
-
-
 - (LxFTPRequest *) ListWithFTP:(NSString *)path withProgress:(UploadProgress) uProgress{
     LxFTPRequest *ftpRequest = [LxFTPRequest resourceListRequest];
     NSDictionary *config = [[Util shareInstance] loadConfig];

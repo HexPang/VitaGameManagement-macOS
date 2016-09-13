@@ -9,5 +9,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface MyVitaViewItem : NSCollectionViewItem
-
+- (void)setPath:(NSString *)p;
 @end

@@ -8,11 +8,16 @@
 
 #import "MyVitaViewItem.h"
 
-@interface MyVitaViewItem ()
-
+@interface MyVitaViewItem (){
+    NSString *path;
+}
 @end
 
 @implementation MyVitaViewItem
+
+- (void)setPath:(NSString *)p{
+    path = p;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -40,19 +40,28 @@
         </customView>
         <menu title="Actions" autoenablesItems="NO" id="4tU-AB-nyW">
             <items>
-                <menuItem title="Open" id="Kbn-aE-D0k">
+                <menuItem title="Open" tag="1" id="Kbn-aE-D0k">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="MenuClicked:" target="Hz6-mo-xeY" id="CKz-WT-zzO"/>
+                    </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="CdS-9B-rWl"/>
-                <menuItem title="Move" id="T6e-hP-ppR">
+                <menuItem title="Move" tag="2" id="T6e-hP-ppR">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="MenuClicked:" target="Hz6-mo-xeY" id="Gco-m9-s7R"/>
+                    </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="M60-Lr-a1V"/>
-                <menuItem title="Delete" id="1GR-ya-NYO">
+                <menuItem title="Delete" tag="3" id="1GR-ya-NYO">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="MenuClicked:" target="Hz6-mo-xeY" id="fTR-Uw-vAe"/>
+                    </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="256.5" y="193.5"/>
+            <point key="canvasLocation" x="288" y="129.5"/>
         </menu>
     </objects>
     <resources>
